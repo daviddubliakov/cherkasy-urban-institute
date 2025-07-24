@@ -15,63 +15,27 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from '@headlessui/react';
-import {
-  Bars3Icon,
-  XMarkIcon,
-  FireIcon,
-  CurrencyDollarIcon,
-  BugAntIcon,
-  ShieldCheckIcon,
-  AcademicCapIcon,
-} from '@heroicons/react/24/outline';
-import { ChevronDownIcon, PhoneIcon } from '@heroicons/react/20/solid';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
-const workWays = [
-  {
-    name: 'Війна',
-    description: 'Дізнайтеся, як ми допомагаємо місту під час війни',
-    href: '/war',
-    icon: FireIcon,
-  },
-  {
-    name: 'Подолання наслідків війни',
-    description: 'Підтримка відновлення інфраструктури',
-    href: '/war-consequences',
-    icon: BugAntIcon,
-  },
-  {
-    name: 'Безпечне місто',
-    description: 'Розробка та впровадження технологій безпеки',
-    href: '/safe-city',
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: 'Міська культура',
-    description: 'Підтримка та розвиток культурних ініціатив',
-    href: '/city-culture',
-    icon: AcademicCapIcon,
-  },
-];
-const callsToAction = [
-  { name: 'Підтримка інституту', href: '/charity', icon: CurrencyDollarIcon },
-  { name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
-];
+import { MAIN_MENU_ITEMS, CALLS_TO_ACTION } from './constants';
+import { BOOK } from '@/utils/book';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className='bg-white'>
+    <header className='bg-gray-100'>
       <nav
         aria-label='Global'
         className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
       >
         <div className='flex lg:flex-1'>
-          <Link href='/' className='-m-1.5 p-1.5'>
+          <Link href={BOOK.home} className='-m-1.5 p-1.5'>
             <span className='sr-only'>Черкаський інститут міста</span>
             <Image
               src='/images/logo.png'
-              width={120}
+              width={112}
               height={32}
               priority
               className='h-8 w-auto'
@@ -104,7 +68,7 @@ export const Header = () => {
               className='absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in'
             >
               <div className='p-4'>
-                {workWays.map((item) => (
+                {MAIN_MENU_ITEMS.map((item) => (
                   <div
                     key={item.name}
                     className='group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50'
@@ -116,21 +80,21 @@ export const Header = () => {
                       />
                     </div>
                     <div className='flex-auto'>
-                      <a
+                      <Link
                         href={item.href}
                         className='block font-semibold text-gray-900'
                       >
                         {item.name}
                         <span className='absolute inset-0' />
-                      </a>
+                      </Link>
                       <p className='mt-1 text-gray-600'>{item.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <div className='grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50'>
-                {callsToAction.map((item) => (
-                  <a
+                {CALLS_TO_ACTION.map((item) => (
+                  <Link
                     key={item.name}
                     href={item.href}
                     className='flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100'
@@ -140,26 +104,38 @@ export const Header = () => {
                       className='size-5 flex-none text-gray-400'
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </PopoverPanel>
           </Popover>
 
-          <a href='#' className='text-sm/6 font-semibold text-gray-900'>
+          <Link
+            href={BOOK.heraldChim}
+            className='text-sm/6 font-semibold text-gray-900'
+          >
             Вісник ЧІМ
-          </a>
-          <a href='#' className='text-sm/6 font-semibold text-gray-900'>
+          </Link>
+          <Link
+            href={BOOK.educationalPrograms}
+            className='text-sm/6 font-semibold text-gray-900'
+          >
             Освітні програми
-          </a>
-          <a href='#' className='text-sm/6 font-semibold text-gray-900'>
+          </Link>
+          <Link
+            href={BOOK.reports}
+            className='text-sm/6 font-semibold text-gray-900'
+          >
             Звіти
-          </a>
+          </Link>
         </PopoverGroup>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-          <a href='#' className='text-sm/6 font-semibold text-gray-900'>
+          <Link
+            href={BOOK.charity}
+            className='text-sm/6 font-semibold text-gray-900'
+          >
             СТАТИ БЛАГОДІЙНИКОМ <span aria-hidden='true'>&rarr;</span>
-          </a>
+          </Link>
         </div>
       </nav>
       <Dialog
@@ -170,20 +146,23 @@ export const Header = () => {
         <div className='fixed inset-0 z-50' />
         <DialogPanel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
           <div className='flex items-center justify-between'>
-            <a href='#' className='-m-1.5 p-1.5'>
-              <span className='sr-only'>Your Company</span>
-              <img
-                alt=''
-                src='https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600'
+            <Link href={BOOK.home} className='-m-1.5 p-1.5'>
+              <span className='sr-only'>Відкрити головне меню</span>
+              <Image
+                src='/images/logo.png'
+                width={112}
+                height={32}
+                priority
                 className='h-8 w-auto'
+                alt='Логотип Черксього інституту міста'
               />
-            </a>
+            </Link>
             <button
               type='button'
               onClick={() => setMobileMenuOpen(false)}
               className='-m-2.5 rounded-md p-2.5 text-gray-700'
             >
-              <span className='sr-only'>Close menu</span>
+              <span className='sr-only'>Закрити меню</span>
               <XMarkIcon aria-hidden='true' className='size-6' />
             </button>
           </div>
@@ -192,17 +171,17 @@ export const Header = () => {
               <div className='space-y-2 py-6'>
                 <Disclosure as='div' className='-mx-3'>
                   <DisclosureButton className='group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'>
-                    Product
+                    Напрямки Роботи
                     <ChevronDownIcon
                       aria-hidden='true'
                       className='size-5 flex-none group-data-open:rotate-180'
                     />
                   </DisclosureButton>
                   <DisclosurePanel className='mt-2 space-y-2'>
-                    {[...workWays, ...callsToAction].map((item) => (
+                    {[...MAIN_MENU_ITEMS, ...CALLS_TO_ACTION].map((item) => (
                       <DisclosureButton
                         key={item.name}
-                        as='a'
+                        as={Link}
                         href={item.href}
                         className='block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50'
                       >
@@ -211,33 +190,33 @@ export const Header = () => {
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
-                <a
-                  href='#'
+                <Link
+                  href={BOOK.heraldChim}
                   className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
                 >
-                  Features
-                </a>
-                <a
-                  href='#'
+                  Вісник ЧІМ
+                </Link>
+                <Link
+                  href={BOOK.educationalPrograms}
                   className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
                 >
-                  Marketplace
-                </a>
-                <a
-                  href='#'
+                  Освітні програми
+                </Link>
+                <Link
+                  href={BOOK.reports}
                   className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
                 >
-                  Company
-                </a>
+                  Звіти
+                </Link>
               </div>
-              {/* <div className='py-6'>
-                <a
-                  href='#'
+              <div className='py-6'>
+                <Link
+                  href={BOOK.charity}
                   className='-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
                 >
-                  Log in
-                </a>
-              </div> */}
+                  СТАТИ БЛАГОДІЙНИКОМ <span aria-hidden='true'>&rarr;</span>
+                </Link>
+              </div>
             </div>
           </div>
         </DialogPanel>
