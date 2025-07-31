@@ -8,4 +8,5 @@ export const BOOK = {
   heraldChim: '/herald-chim',
   educationalPrograms: '/educational-programs',
   reports: '/reports',
+  contacts: '/contacts',
 };
