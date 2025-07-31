@@ -12,7 +12,7 @@ export type ButtonProps = {
 
 const buttonVariants: Record<ButtonVariant, string> = {
   default:
-    "px-10 py-2 bg-gray-500 opacity-75 rounded-lg border border-white text-white shadow-inner shadow-white/10 hover:bg-gray-600 ",
+    "px-10 py-2 bg-corp-10 opacity-75 rounded-lg border border-white text-white shadow-inner shadow-white/10 hover:opacity-90 ",
 };
 
 export const Button = ({

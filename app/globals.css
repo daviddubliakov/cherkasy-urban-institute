@@ -4,6 +4,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --corp-10: #040b27;
+  --corp-20: #26335c;
+  --corp-21: #273964;
+  --corp-22: #24365c;
+  --corp-30: #476689;
+  --corp-31: #406583;
+  --corp-32: #385d7f;
+  --corp-40: #23315a;
+  --corp-50: #384a66;
+  --corp-51: #344964;
+  --corp-60: #b2b3b0;
 }
 
 @theme inline {
@@ -11,6 +22,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-open-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-corp-10: var(--corp-10);
+  --color-corp-20: var(--corp-20);
+  --color-corp-21: var(--corp-21);
+  --color-corp-22: var(--corp-22);
+  --color-corp-30: var(--corp-30);
+  --color-corp-31: var(--corp-31);
+  --color-corp-32: var(--corp-32);
+  --color-corp-40: var(--corp-40);
+  --color-corp-50: var(--corp-50);
+  --color-corp-51: var(--corp-51);
+  --color-corp-60: var(--corp-60);
 }
 
 body {
@@ -26,4 +49,9 @@ h2 {
 
 h2.h2-shadow {
   text-shadow: 0px 0px 100px 0px #2b2b2b4d;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 500;
 }

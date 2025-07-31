@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { Button, ButtonProps } from "@/components/button";
 import { checkElementVisibility, cn } from "@/utils";
 
-export type BannerType = "default";
+export type BannerType = "default" | "splitted";
 
 export type BannerProps = {
   type?: BannerType;
@@ -35,6 +35,20 @@ const bannerVariants: Record<BannerType, Record<BannerElement, string>> = {
       "max-w-[70%] animate-fade-up animate-duration-1000 animate-delay-500 h2-shadow",
     description:
       "animate-fade animate-once animate-duration-500 animate-delay-[1500ms] animate-ease-in",
+    children:
+      "animate-fade animate-once animate-duration-500 animate-delay-[2000ms] animate-ease-in",
+  },
+  splitted: {
+    wrapper:
+      "grid gap-10 justify-center text-foreground md:gap-30 sm:grid-cols-2",
+    wrapperAnimation:
+      "animate-fade animate-once animate-duration-1000 animate-delay-[200ms] animate-ease-in sm:animate-fade-right",
+    image: "w-[100vw] object-cover sm:w-[50vw]",
+    content: "w-full flex flex-col justify-center items-start",
+    title:
+      "w-full text-center animate-fade-up animate-duration-500 animate-delay-500 sm:text-left sm:max-w-[90%]",
+    description:
+      "max-w-[90%] animate-fade animate-once animate-duration-500 animate-delay-[1500ms] animate-ease-in",
     children:
       "animate-fade animate-once animate-duration-500 animate-delay-[2000ms] animate-ease-in",
   },

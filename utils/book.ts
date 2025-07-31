@@ -8,4 +8,9 @@ export const BOOK = {
   heraldChim: '/herald-chim',
   educationalPrograms: '/educational-programs',
   reports: '/reports',
+  fpvSchool: '/fpv-school',
+  fpvMaster: '/fpv-master',
+  civilTraining: '/civil-training',
+  citizensCulture: '/citizens-culture',
+  IPSOlogy: '/ipsology',
 };

@@ -1,24 +1,24 @@
-import { Open_Sans, Geist_Mono } from 'next/font/google';
-import type { Metadata } from 'next';
+import { Open_Sans, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
-import './globals.css';
+import "./globals.css";
 
 const openSans = Open_Sans({
-  variable: '--font-open-sans',
-  subsets: ['latin'],
+  variable: "--font-open-sans",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Черкаський Інститут Міста',
-  description: 'Кращі практики міського життя',
+  title: "Черкаський Інститут Міста",
+  description: "Кращі практики міського життя",
 };
 
 export default function RootLayout({
@@ -27,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ua'>
+    <html lang="ua">
       <body
-        className={`${openSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.variable} ${geistMono.variable} antialiased mx-auto max-w-7xl`}
       >
-        <Header />
-        <main className='min-h-[calc(100vh-148px)]'>{children}</main>
-        <Footer />
+        <div className="relative">
+          <Header />
+          <main className="min-h-[calc(100vh-148px)]">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
