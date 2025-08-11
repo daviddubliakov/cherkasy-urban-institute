@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
+import { Link } from '@/components/ui';
 import {
   Dialog,
   DialogPanel,
@@ -31,7 +31,7 @@ export const Header = () => {
         className='mx-auto flex max-w-7xl items-center justify-between p-6  lg:px-8'
       >
         <div className='flex lg:flex-1'>
-          <Link href={BOOK.home} className='-m-1.5 p-1.5'>
+          <Link variant='text' href={BOOK.home} className='-m-1.5 p-1.5'>
             <span className='sr-only'>Черкаський інститут міста</span>
             <Image
               src='/images/logo.png'
@@ -76,13 +76,14 @@ export const Header = () => {
                     <div className='flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                       <item.icon
                         aria-hidden='true'
-                        className='size-6 text-gray-600 group-hover:text-indigo-600'
+                        className='size-6 text-gray-600 group-hover:slate-900'
                       />
                     </div>
                     <div className='flex-auto'>
                       <Link
                         href={item.href}
-                        className='block font-semibold text-gray-900'
+                        fontWeight='semibold'
+                        className='block'
                       >
                         {item.name}
                         <span className='absolute inset-0' />
@@ -97,7 +98,9 @@ export const Header = () => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className='flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100'
+                    fontWeight='semibold'
+                    fontSize='sm/6'
+                    className='flex items-center justify-center gap-x-2.5 p-3'
                   >
                     <item.icon
                       aria-hidden='true'
@@ -110,30 +113,22 @@ export const Header = () => {
             </PopoverPanel>
           </Popover>
 
-          <Link
-            href={BOOK.heraldChim}
-            className='text-sm/6 font-semibold text-gray-900'
-          >
+          <Link href={BOOK.heraldChim} fontSize='sm/6' fontWeight='semibold'>
             Вісник ЧІМ
           </Link>
           <Link
             href={BOOK.educationalPrograms}
-            className='text-sm/6 font-semibold text-gray-900'
+            fontSize='sm/6'
+            fontWeight='semibold'
           >
             Освітні програми
           </Link>
-          <Link
-            href={BOOK.reports}
-            className='text-sm/6 font-semibold text-gray-900'
-          >
+          <Link href={BOOK.reports} fontSize='sm/6' fontWeight='semibold'>
             Звіти
           </Link>
         </PopoverGroup>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-          <Link
-            href={BOOK.charity}
-            className='text-sm/6 font-semibold text-gray-900'
-          >
+          <Link href={BOOK.charity} fontSize='sm/6' fontWeight='semibold'>
             СТАТИ БЛАГОДІЙНИКОМ <span aria-hidden='true'>&rarr;</span>
           </Link>
         </div>
@@ -192,19 +187,25 @@ export const Header = () => {
                 </Disclosure>
                 <Link
                   href={BOOK.heraldChim}
-                  className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
+                  fontWeight='semibold'
+                  fontSize='base/7'
+                  className='-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50'
                 >
                   Вісник ЧІМ
                 </Link>
                 <Link
                   href={BOOK.educationalPrograms}
-                  className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
+                  fontWeight='semibold'
+                  fontSize='base/7'
+                  className='-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50'
                 >
                   Освітні програми
                 </Link>
                 <Link
                   href={BOOK.reports}
-                  className='-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
+                  fontWeight='semibold'
+                  fontSize='base/7'
+                  className='-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50'
                 >
                   Звіти
                 </Link>
@@ -212,7 +213,9 @@ export const Header = () => {
               <div className='py-6'>
                 <Link
                   href={BOOK.charity}
-                  className='-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
+                  fontWeight='semibold'
+                  fontSize='base/7'
+                  className='-mx-3 block rounded-lg px-3 py-2.5 hover:bg-gray-50'
                 >
                   СТАТИ БЛАГОДІЙНИКОМ <span aria-hidden='true'>&rarr;</span>
                 </Link>

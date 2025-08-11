@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/components/ui';
 
 import { SOCIALS } from './constants';
 
@@ -15,8 +15,8 @@ export const Footer = () => {
               <Link
                 key={social.id}
                 href={social.href}
+                fontWeight='semibold'
                 target='_blank'
-                className='text-gray-400 hover:text-indigo-600'
               >
                 {<social.icon />}
                 <span className='sr-only'>{social.label}</span>

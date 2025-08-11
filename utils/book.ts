@@ -13,4 +13,5 @@ export const BOOK = {
   civilTraining: '/civil-training',
   citizensCulture: '/citizens-culture',
   IPSOlogy: '/ipsology',
+  contacts: '/contacts',
 };

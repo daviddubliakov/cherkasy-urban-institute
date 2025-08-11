@@ -1,8 +1,8 @@
-export * from "./client-side-utils";
+export * from './client-side-utils';
 
-import { clsx, type ClassValue } from 'clsx';
+import cx from 'classnames';
 import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+export function cn(...inputs: cx.Argument[]) {
+  return twMerge(cx(inputs));
 }
