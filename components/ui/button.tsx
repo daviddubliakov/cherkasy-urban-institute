@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Button as HeadlessButton } from '@headlessui/react';
 import { cn } from '@/utils';
 
