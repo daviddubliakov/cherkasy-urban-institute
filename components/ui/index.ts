@@ -1,2 +1,4 @@
-export { Link } from './link';
-export { Button } from './button';
+import { Link } from './link';
+import { Button } from './button';
+
+export { Link, Button };
