@@ -1,2 +1,2 @@
-export * from './link';
-export * from './button';
+export { Link } from './link';
+export { Button } from './button';
