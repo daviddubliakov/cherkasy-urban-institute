@@ -28,7 +28,7 @@ export const Header = () => {
     <header className='bg-gray-100'>
       <nav
         aria-label='Global'
-        className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
+        className='mx-auto flex max-w-7xl items-center justify-between p-6  lg:px-8'
       >
         <div className='flex lg:flex-1'>
           <Link variant='text' href={BOOK.home} className='-m-1.5 p-1.5'>
@@ -55,11 +55,11 @@ export const Header = () => {
         </div>
         <PopoverGroup className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
-            <PopoverButton className='flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900'>
+            <PopoverButton className='flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900 cursor-pointer focus-within:outline-none'>
               Напрямки Роботи
               <ChevronDownIcon
                 aria-hidden='true'
-                className='size-5 flex-none text-gray-400 cursor-pointer'
+                className='size-5 flex-none text-gray-400'
               />
             </PopoverButton>
 

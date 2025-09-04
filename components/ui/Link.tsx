@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { type ReactElement } from 'react';
 import NextLink, { type LinkProps as NextLinkProps } from 'next/link';
 
 type LinkVariantType = 'button' | 'text';
@@ -14,16 +15,17 @@ type LinkProps = NextLinkProps & {
   color?: LinkColorType;
   className?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
+  rightIcon?: ReactElement;
 };
 
 const linkStylesByVariant = {
   button:
-    'rounded-md bg-slate-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900',
+    'rounded-md bg-slate-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 flex items-center justify-between gap-3',
   text: '',
 };
 
 const linkStylesByColor = {
-  ['gray-900']: 'text-gray-900 hover:text-gray-500',
+  ['gray-900']: 'text-gray-900',
 };
 
 const linkStylesByFontWeight = {
@@ -44,6 +46,8 @@ export const Link = (props: LinkProps) => {
     color = 'gray-900',
     fontWeight = 'normal',
     fontSize = 'sm',
+    rightIcon,
+    children,
     ...rest
   } = props;
 
@@ -55,5 +59,10 @@ export const Link = (props: LinkProps) => {
     className,
   );
 
-  return <NextLink className={linkStyles} {...rest}></NextLink>;
+  return (
+    <NextLink className={linkStyles} {...rest}>
+      {children}
+      {rightIcon}
+    </NextLink>
+  );
 };
