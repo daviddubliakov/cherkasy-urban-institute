@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import { Link } from '@/components/ui';
+import { Link } from '@/components/ui/link';
 import {
   Dialog,
   DialogPanel,

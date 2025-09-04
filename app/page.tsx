@@ -2,7 +2,7 @@ import { Banner } from '@/components/banner';
 import { Section } from '@/components/section';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
-import { Link } from '@/components/ui';
+import { Link } from '@/components/ui/link';
 
 import { BANNER_LIST, SECTION_ELEMENTS } from '@/constants/home-content';
 
