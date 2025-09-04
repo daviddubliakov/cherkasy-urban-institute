@@ -1,5 +1,2 @@
-import { Link } from './link';
-import { Button } from './button';
-
-// UI Components
-export { Link, Button };
+export { Link } from './link';
+export { Button } from './button';
