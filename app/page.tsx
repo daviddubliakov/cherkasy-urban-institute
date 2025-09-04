@@ -1,65 +1,32 @@
-import { Banner, BannerProps } from '@/components/banner';
-import Link from 'next/link';
-import { Button } from '@/components/button';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { Banner } from '@/components/banner';
 import { Section } from '@/components/section';
-import { BOOK } from '@/utils/book';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
-const HomepageBannerList: Array<BannerProps & { link: string }> = [
-  {
-    background: '/images/homepage/DSC_3991_-1-1320x1064.jpg',
-    title: 'Школа FPV пілотування',
-    description: 'Навчаємо військових та цивільних пілотувати FPV дрони',
-    link: BOOK.fpvSchool,
-  },
-  {
-    type: 'splitted',
-    background: 'images/homepage/photo_2024-10-21_17-21-22.jpg',
-    title: 'Школа FPV інженерії',
-    description:
-      'Навчаємо військових та цивільних конструювати та налаштовувати FPV дрони',
-    link: BOOK.fpvMaster,
-  },
-];
+import { Link } from '@/components/ui';
 
-const sectionElements = [
-  {
-    image: '/images/homepage/photo_2024-10-21_12-06-33.jpg',
-    title: 'Цикл «Підготовка цивільних в умовах воєнного часу»',
-    description:
-      'Проводимо військові вишколи для цивільних та вишколи щодо реагування на екстремальні ситуації воєнного часу',
-    link: BOOK.civilTraining,
-  },
-  {
-    image: '/images/homepage/photo_2024-10-21_17-46-27-1.jpg',
-    title: 'Культурна громада',
-    description:
-      'Інкубація культурних проєктів, ініціатив та політик. Запартнерились із ГО «Культура» у розрізі культурних та розвиткових проєктів у Черкасах',
-    link: BOOK.citizensCulture,
-  },
-  {
-    image: '/images/homepage/photo_2024-10-21_20-48-00.jpg',
-    title: 'ІПСОЛОГІЯ',
-    description:
-      'Досліджуємо тему інформаційної війни та готуємо цивільних до протидії ІПСО ворога на території України​',
-    link: BOOK.IPSOlogy,
-  },
-];
+import { BANNER_LIST, SECTION_ELEMENTS } from '@/constants/home-content';
 
 export default function Home() {
   return (
-    <div className='relative flex flex-col gap-10 py-[80px] sm:gap-30'>
-      {HomepageBannerList.map((bannerProps, i) => (
-        <Banner key={i} {...bannerProps}>
-          <Link href={bannerProps.link}>
-            <Button className='mt-6'>
-              Go to
-              <ArrowRightIcon className='size-6' />
-            </Button>
-          </Link>
-        </Banner>
-      ))}
-      <Section elements={sectionElements} />
-    </div>
+    <main className='min-h-screen'>
+      <section className='relative'>
+        {BANNER_LIST.map((bannerProps, i) => (
+          <div key={i} className={i > 0 ? 'mt-2 sm:mt-4 md:mt-8 lg:mt-16' : ''}>
+            <Banner {...bannerProps}>
+              <Link
+                href={bannerProps.link}
+                variant='button'
+                fontWeight='semibold'
+                className='group inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white hover:text-blue-800 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-xs sm:text-sm md:text-base border border-blue-500/20'
+              >
+                Ознайомитись
+                <ArrowRightIcon className='size-3 sm:size-4 md:size-5 group-hover:translate-x-1 transition-transform duration-300' />
+              </Link>
+            </Banner>
+          </div>
+        ))}
+      </section>
+      <Section elements={SECTION_ELEMENTS} />
+    </main>
   );
 }
