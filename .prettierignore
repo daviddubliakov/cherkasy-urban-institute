@@ -1,0 +1,5 @@
+.next/
+.qodo/
+/node_modules
+**/*.d.ts
+**/*.gen.ts
