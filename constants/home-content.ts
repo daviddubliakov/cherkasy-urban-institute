@@ -4,8 +4,8 @@ import { BOOK } from '@/utils/book';
 export const BANNER_LIST: Array<BannerProps & { link: string }> = [
   {
     background: '/images/homepage/banner.jpg',
-    title: 'Школа FPV пілотування',
-    description: 'Навчаємо військових та цивільних пілотувати FPV дрони',
+    title: 'Школа FPV “Черкаський рій”',
+    description: 'Пілотування FPV, курси пілотів-перехоплювачів та FPV-інженерії',
     link: BOOK.fpvSchool,
   },
   {
