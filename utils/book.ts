@@ -6,7 +6,7 @@ export const BOOK = {
   cityCulture: '/city-culture',
   charity: '/charity',
   heraldChim: '/herald-chim',
-  educationalPrograms: '/educational-programs',
+  trainings: '/trainings',
   reports: '/reports',
   fpvSchool: '/fpv-school',
   fpvMaster: '/fpv-master',

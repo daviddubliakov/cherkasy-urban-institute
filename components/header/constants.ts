@@ -35,6 +35,7 @@ export const MAIN_MENU_ITEMS = [
     icon: AcademicCapIcon,
   },
 ];
+
 export const CALLS_TO_ACTION = [
   { name: 'Підтримка інституту', href: '/charity', icon: CurrencyDollarIcon },
   { name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
