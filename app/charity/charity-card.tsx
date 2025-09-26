@@ -22,8 +22,8 @@ export const CharityCard = ({ image, header, text = [], link }: CharityCardProps
         </p>
       ))}
       <a href={link} target="_blank">
-        <button className="border-3 border-white bg-black px-8 py-3.5 text-white transition-colors duration-300 ease-in-out hover:border-black hover:bg-white hover:text-black">
-          <p className="cursor-pointer text-base font-bold">ПІДТРИМАТИ</p>
+        <button className="cursor-pointer border-3 border-white bg-black px-8 py-3.5 text-white transition-colors duration-300 ease-in-out hover:border-black hover:bg-white hover:text-black">
+          <p className="text-base font-bold">ПІДТРИМАТИ</p>
         </button>
       </a>
     </div>
