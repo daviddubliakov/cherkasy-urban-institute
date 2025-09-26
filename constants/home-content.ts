@@ -1,20 +1,27 @@
-import { BannerProps } from '@/components/banner';
+
+import type { CarouselSlide } from '@/components/carousel';
 import { BOOK } from '@/utils/book';
 
-export const BANNER_LIST: Array<BannerProps & { link: string }> = [
+export const CAROUSEL_SLIDES: CarouselSlide[] = [
   {
-    background: '/images/homepage/banner.jpg',
-    title: 'Школа FPV “Черкаський рій”',
+    background: '/images/main-screen/fpv-school.jpg',
+    title: 'Школа FPV "Черкаський рій"',
     description: 'Пілотування FPV, курси пілотів-перехоплювачів та FPV-інженерії',
-    link: BOOK.fpvSchool,
   },
   {
-    type: 'splitted',
-    background: '/images/homepage/fpv-school.jpg',
-    title: 'Школа FPV інженерії',
-    description:
-      'Навчаємо військових та цивільних конструювати та налаштовувати FPV дрони',
-    link: BOOK.fpvMaster,
+    background: '/images/main-screen/civil-traning.JPG',
+    title: 'Військові вишколи та тренінги для цивільних',
+    description: 'Навчаємо реагувати на екстремальні ситуації воєнного часу',
+  },
+  {
+    background: '/images/main-screen/ipsology.jpg',
+    title: 'ІПСОлогія',
+    description: 'Дослідження, виявлення, протидія та витіснення ворожих ІПСО з інформаційного простору',
+  },
+  {
+    background: '/images/main-screen/culture.jpg',
+    title: 'Культурна громада',
+    description: 'Інкубація культурних проєктів, ініціатив та політик',
   },
 ];
 
