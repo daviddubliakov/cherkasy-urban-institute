@@ -4,15 +4,23 @@ type CarouselIndicatorsProps = {
   totalSlides: number;
   currentSlide: number;
   onSlideSelect: (index: number) => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 };
 
 export const CarouselIndicators = ({ 
   totalSlides, 
   currentSlide, 
-  onSlideSelect 
+  onSlideSelect,
+  onMouseEnter,
+  onMouseLeave 
 }: CarouselIndicatorsProps) => {
   return (
-    <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 sm:space-x-3">
+    <div 
+      className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 sm:space-x-3"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {Array.from({ length: totalSlides }).map((_, index) => (
         <button
           key={index}

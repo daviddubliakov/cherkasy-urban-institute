@@ -23,29 +23,33 @@ export type CarouselSlide = {
 export const Carousel = ({
   slides,
   autoPlay = true,
-  autoPlayInterval = 15000,// ms
+  autoPlayInterval = 25000,// ms
   className,
 }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  }, [slides.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
+  const handlePause = () => setIsPaused(true);
+  const handleResume = () => setIsPaused(false);
+
   useEffect(() => {
-    if (!autoPlay) return;
+    if (!autoPlay || isPaused) return;
 
     const interval = setInterval(nextSlide, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, nextSlide]);
+  }, [autoPlay, autoPlayInterval, nextSlide, isPaused]);
 
   if (!slides.length) return null;
 
@@ -95,12 +99,16 @@ export const Carousel = ({
           totalSlides={slides.length}
           currentSlide={currentSlide}
           onSlideSelect={goToSlide}
+          onMouseEnter={handlePause}
+          onMouseLeave={handleResume}
         />     
       </div>
 
       <CarouselNavigation 
         onPrevious={prevSlide}
         onNext={nextSlide}
+        onMouseEnter={handlePause}
+        onMouseLeave={handleResume}
       />
     </div>
   );
