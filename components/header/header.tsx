@@ -195,6 +195,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2.5 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   СТАТИ БЛАГОДІЙНИКОМ <span aria-hidden="true">&rarr;</span>
                 </Link>
