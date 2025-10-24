@@ -1,3 +1,5 @@
+import { Link } from '@/components/ui/link';
+
 import { TrainingCard } from './training-card';
 import { TRAININGS_LIST } from './trainings-list';
 
@@ -33,9 +35,9 @@ export default function Trainings() {
           ))}
         </div>
         <div className="mt-8 sm:mt-12">
-          <button className="w-full rounded-xl bg-blue-600 px-6 py-3 text-[16px] font-bold text-white transition-colors hover:cursor-pointer hover:bg-blue-700 sm:w-auto sm:rounded-2xl sm:px-8 sm:py-4 sm:text-[18px]">
+          <Link href="#" variant="buttonLink" backgroundColor="blue-600" fontWeight="bold" fontSize="sm">
             Перейти до вишколів
-          </button>
+          </Link>
         </div>
       </section>
     </main>
