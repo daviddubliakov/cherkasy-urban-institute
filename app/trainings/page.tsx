@@ -20,13 +20,12 @@ export default function Trainings() {
           <h2 className="text-center !text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
             <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-2 lg:gap-4">
               <span>Практика.</span>
-              <span>Ком&apos;юніті.</span>
-              <span>Вплив.</span>
+              <span>Спільнота.</span>
+              <span>Дієвість.</span>
             </div>
           </h2>
           <h3 className="max-w-4xl text-center !text-[16px] leading-relaxed text-gray-600 sm:!text-[18px] lg:!text-[22px]">
-            Вишколи — це інтенсивна робота над реальними задачами міста з підтримкою менторів і спільноти. Ми
-            допомогаємо з ідеї перейти до втілення.
+          Вишколи - це інтенсивні тренінги з підготовки цивільних містян до викликів воєнного часу. Разом із інструкторами з добровольчого формування боремо страх, вчимо рятувати життя та діяти в критичних ситуаціях.
           </h3>
         </div>
         <div className="grid w-full max-w-4xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 sm:gap-6 sm:px-8">

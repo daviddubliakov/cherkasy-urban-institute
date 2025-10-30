@@ -1,19 +1,19 @@
-import type { TrainingCardPropsType } from "./training-card";
+import type { TrainingCardPropsType } from './training-card';
 
-export const TRAININGS_LIST:TrainingCardPropsType[] = [
+export const TRAININGS_LIST: TrainingCardPropsType[] = [
   {
     id: 'practice',
     title: 'Практика',
-    description: 'Робота з реальними кейсами'
-  },
-  {
-    id: 'mentorship', 
-    title: 'Менторство',
-    description: 'Підтримка експертів'
+    description: 'Теоретичні знання перетворюємо на практичні вміння, одразу застосовуючи їх на вишколах.',
   },
   {
     id: 'community',
-    title: 'Ком\'юніті', 
-    description: 'Однодумці і партнерства'
-  }
-]
+    title: 'Спільнота',
+    description: 'Формуємо спільноту "супергероїв", здатних рятувати життя.',
+  },
+  {
+    id: 'effectiveness',
+    title: 'Дієвість',
+    description: 'Знанння та вміння допомагають одразу діяти у критичний момент.',
+  },
+];
