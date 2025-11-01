@@ -2,6 +2,7 @@ import { CharityCardPropsType } from './charity-card';
 
 export const CHARITY_LIST: Array<CharityCardPropsType> = [
   {
+    id: 'support-the-team-and-the-space-of-chim',
     image: '/images/charity/Bilyy-kvadratnyy-logo.jpg',
     header: 'Стати опорою команді та простору ЧІМ',
     text: [
@@ -10,24 +11,28 @@ export const CHARITY_LIST: Array<CharityCardPropsType> = [
     link: 'https://secure.wayforpay.com/donate/cui',
   },
   {
+    id: 'support-ipsology',
     image: '/images/charity/ipsologi.jpg',
     header: 'Підтримати ІПСОлогію',
     text: ['Тут ви підтримуєте команду, яка викриває і знешкоджує ворожі ІПСО в Черкасах і по всій країні'],
     link: 'https://secure.wayforpay.com/donate/ipsology',
   },
   {
+    id: 'support-fpv-school',
     image: '/images/charity/fpv-filot-and-engeneering-scool.jpg',
     header: 'Підтримати школу FPV пілотування та інженерії',
     text: ['Тут ви долучаєтесь до вирощування Черкаського рою, який захищає Україну та Черкаси'],
     link: 'https://secure.wayforpay.com/donate/fpvschool',
   },
   {
+    id: 'support-fpv-drones',
     image: '/images/charity/haven-panishment-gathering.jpg',
     header: 'Постійно діючий збір на закупівлю кари небесної',
     text: ['Тут ви доєднуєтесь до постачання ударних безпілотників та їх комплектуючих на голови ворогам'],
     link: 'https://secure.wayforpay.com/donate/fpvdrones',
   },
   {
+    id: 'support-nebesa-cherkaschyny',
     image: '/images/charity/nebesa_cherkaschyny-768x511.jpg',
     header: 'Проект Небеса Черкащини',
     text: [
