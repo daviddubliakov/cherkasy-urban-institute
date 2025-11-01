@@ -1,15 +1,16 @@
 import Image from 'next/image';
 
 export type CharityCardPropsType = {
+  id: string;
   image: string;
   header: string;
   text: string[];
   link: string;
 };
 
-export const CharityCard = ({ image, header, text = [], link }: CharityCardPropsType) => {
+export const CharityCard = ({ id, image, header, text = [], link }: CharityCardPropsType) => {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 p-2.5" key={header[0]}>
+    <div className="flex flex-col items-center justify-center gap-4 p-2.5" key={id}>
       <a href={link} target="_blank">
         <Image src={image} width={270} height={270} alt={'image'}></Image>
       </a>

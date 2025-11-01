@@ -119,7 +119,7 @@ export const Header = () => {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link href={BOOK.home} className="-m-1.5 p-1.5">
+            <Link href={BOOK.home} className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Відкрити головне меню</span>
               <Image
                 src="/images/logo.png"
@@ -155,6 +155,7 @@ export const Header = () => {
                         as={Link}
                         href={item.href}
                         className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
                       </DisclosureButton>
@@ -167,6 +168,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Вишколи
                 </Link>
@@ -176,6 +178,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Вісник ЧІМ
                 </Link>
@@ -185,6 +188,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Звіти
                 </Link>
