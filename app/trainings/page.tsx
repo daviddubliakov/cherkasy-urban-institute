@@ -1,4 +1,8 @@
+'use client';
+
 import { Link } from '@/components/ui/link';
+
+import { type MouseEvent, useCallback } from 'react';
 
 import { ScheduleCarousel } from './schedule-carousel';
 import { SCHEDULES_LIST } from './schedules-list';
@@ -7,6 +11,26 @@ import { TrainingCard } from './training-card';
 import { TRAININGS_LIST } from './trainings-list';
 
 export default function Trainings() {
+  const handleScrollToCarousel = useCallback((event?: MouseEvent<HTMLAnchorElement>) => {
+    event?.preventDefault();
+
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const section = document.getElementById('schedule-carousel');
+
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', '#schedule-carousel');
+    }
+  }, []);
+
   return (
     <main className="mt-4 flex flex-col items-center overflow-hidden px-4 sm:mt-8">
       <section
@@ -38,14 +62,24 @@ export default function Trainings() {
           ))}
         </div>
         <div className="mt-8 sm:mt-12">
-          <Link href="#" variant="buttonLink" backgroundColor="blue-600" fontWeight="bold" fontSize="sm">
+          <Link
+            href="#schedule-carousel"
+            variant="buttonLink"
+            backgroundColor="blue-600"
+            fontWeight="bold"
+            fontSize="sm"
+            onClick={handleScrollToCarousel}
+          >
             Перейти до вишколів
           </Link>
         </div>
       </section>
 
       {/* Schedule Carousel Section */}
-      <section className="relative mt-24 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16">
+      <section
+        id="schedule-carousel"
+        className="relative mt-24 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16"
+      >
         <div className="mb-8 sm:mb-12">
           <h2 className="!text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
             Календар <span className="gradient-text">вишколів</span>
