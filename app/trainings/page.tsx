@@ -1,5 +1,8 @@
 import { Link } from '@/components/ui/link';
 
+import { ScheduleCarousel } from './schedule-carousel';
+import { SCHEDULES_LIST } from './schedules-list';
+import { TestimonialsSection } from './testimonials-section';
 import { TrainingCard } from './training-card';
 import { TRAININGS_LIST } from './trainings-list';
 
@@ -25,7 +28,8 @@ export default function Trainings() {
             </div>
           </h2>
           <h3 className="max-w-4xl text-center !text-[16px] leading-relaxed text-gray-600 sm:!text-[18px] lg:!text-[22px]">
-          Вишколи - це інтенсивні тренінги з підготовки цивільних містян до викликів воєнного часу. Разом із інструкторами з добровольчого формування боремо страх, вчимо рятувати життя та діяти в критичних ситуаціях.
+            Вишколи - це інтенсивні тренінги з підготовки цивільних містян до викликів воєнного часу. Разом із
+            інструкторами з добровольчого формування боремо страх, вчимо рятувати життя та діяти в критичних ситуаціях.
           </h3>
         </div>
         <div className="grid w-full max-w-4xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 sm:gap-6 sm:px-8">
@@ -39,6 +43,22 @@ export default function Trainings() {
           </Link>
         </div>
       </section>
+
+      {/* Schedule Carousel Section */}
+      <section className="relative mt-24 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="!text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
+            Календар <span className="gradient-text">вишколів</span>
+          </h2>
+        </div>
+
+        <div className="w-full">
+          <ScheduleCarousel schedules={SCHEDULES_LIST} />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
     </main>
   );
 }
