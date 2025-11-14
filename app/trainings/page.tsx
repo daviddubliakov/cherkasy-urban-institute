@@ -1,9 +1,34 @@
+'use client';
+
 import { Link } from '@/components/ui/link';
 
+import { type MouseEvent, useCallback, useRef } from 'react';
+
+import { ScheduleCarousel } from './schedule-carousel';
+import { SCHEDULES_LIST } from './schedules-list';
+import { TestimonialsSection } from './testimonials-section';
 import { TrainingCard } from './training-card';
 import { TRAININGS_LIST, TRAINING_CATEGORIES } from './trainings-list';
 
 export default function Trainings() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const handleScrollToCarousel = useCallback((event?: MouseEvent<HTMLAnchorElement>) => {
+    event?.preventDefault();
+
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', '#schedule-carousel');
+    }
+  }, []);
+
   return (
     <main className="my-8 flex flex-col items-center gap-12 overflow-hidden px-4 sm:mt-8">
       <section
@@ -35,13 +60,19 @@ export default function Trainings() {
           ))}
         </div>
         <div className="mt-8 sm:mt-12">
-          <Link href="#" variant="buttonLink" backgroundColor="blue-600" fontWeight="bold" fontSize="sm">
+          <Link
+            href="#schedule-carousel"
+            variant="buttonLink"
+            backgroundColor="blue-600"
+            fontWeight="bold"
+            fontSize="sm"
+            onClick={handleScrollToCarousel}
+          >
             Перейти до вишколів
           </Link>
         </div>
       </section>
 
-      {/* Training Categories Section */}
       <section className="w-full max-w-7xl space-y-8 sm:space-y-12">
         <div className="flex flex-col items-center gap-3">
           <p className="text-center !text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
@@ -71,8 +102,25 @@ export default function Trainings() {
             </div>
           </div>
         ))}
-          
       </section>
+
+      <section
+        id="schedule-carousel"
+        ref={sectionRef}
+        className="relative mt-24 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16"
+      >
+        <div className="mb-8 sm:mb-12">
+          <h2 className="!text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
+            Календар <span className="gradient-text">вишколів</span>
+          </h2>
+        </div>
+
+        <div className="w-full">
+          <ScheduleCarousel schedules={SCHEDULES_LIST} />
+        </div>
+      </section>
+
+      <TestimonialsSection />
     </main>
   );
 }
