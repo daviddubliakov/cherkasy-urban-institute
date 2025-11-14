@@ -61,39 +61,44 @@ export const Header = () => {
               transition
               className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
-              <div className="p-4">
-                {MAIN_MENU_ITEMS.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
-                  >
-                    <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
-                    </div>
-                    <div className="flex-auto">
-                      <Link href={item.href} fontWeight="semibold" className="block">
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
-                    </div>
+              {({ close }) => (
+                <>
+                  <div className="p-4">
+                    {MAIN_MENU_ITEMS.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                      >
+                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
+                        </div>
+                        <div className="flex-auto">
+                          <Link href={item.href} fontWeight="semibold" className="block" onClick={() => close()}>
+                            {item.name}
+                            <span className="absolute inset-0" />
+                          </Link>
+                          <p className="mt-1 text-gray-600">{item.description}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                {CALLS_TO_ACTION.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    fontWeight="semibold"
-                    fontSize="sm/6"
-                    className="flex items-center justify-center gap-x-2.5 p-3"
-                  >
-                    <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                    {CALLS_TO_ACTION.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        fontWeight="semibold"
+                        fontSize="sm/6"
+                        className="flex items-center justify-center gap-x-2.5 p-3"
+                        onClick={() => close()}
+                      >
+                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
             </PopoverPanel>
           </Popover>
 
@@ -119,7 +124,7 @@ export const Header = () => {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link href={BOOK.home} className="-m-1.5 p-1.5">
+            <Link href={BOOK.home} className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Відкрити головне меню</span>
               <Image
                 src="/images/logo.png"
@@ -155,6 +160,7 @@ export const Header = () => {
                         as={Link}
                         href={item.href}
                         className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
                       </DisclosureButton>
@@ -167,6 +173,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Вишколи
                 </Link>
@@ -176,6 +183,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Вісник ЧІМ
                 </Link>
@@ -185,6 +193,7 @@ export const Header = () => {
                   fontWeight="semibold"
                   fontSize="base/7"
                   className="-mx-3 block rounded-lg px-3 py-2 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Звіти
                 </Link>

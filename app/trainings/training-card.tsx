@@ -1,14 +1,27 @@
+import { Link } from '@/components/ui/link';
+
 export type TrainingCardPropsType = {
   id: string;
   title: string;
-  description: string;
-}
+  description?: string;
+};
 
-export const TrainingCard = ({ title, description }: TrainingCardPropsType) => {
+export const TrainingCard = ({ title }: TrainingCardPropsType) => {
   return (
-    <div className="bg-white rounded-xl sm:rounded-2xl p-5 border border-gray-200">
-      <h3 className="!text-[16px] sm:!text-[18px] !font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-[14px] sm:text-[16px] text-gray-600 leading-relaxed">{description}</p>
-    </div>
+    <Link
+      href="#"
+      className="group flex items-center justify-between rounded-xl border border-gray-200 bg-white px-4 py-3 transition-all hover:border-gray-300 hover:shadow-sm sm:px-5 sm:py-4"
+    >
+      <span className="text-[14px] font-medium text-gray-900 sm:text-[16px]">{title}</span>
+      <svg
+        className="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </Link>
   );
 };

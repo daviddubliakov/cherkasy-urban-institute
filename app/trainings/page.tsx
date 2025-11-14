@@ -8,7 +8,7 @@ import { ScheduleCarousel } from './schedule-carousel';
 import { SCHEDULES_LIST } from './schedules-list';
 import { TestimonialsSection } from './testimonials-section';
 import { TrainingCard } from './training-card';
-import { TRAININGS_LIST } from './trainings-list';
+import { TRAININGS_LIST, TRAINING_CATEGORIES } from './trainings-list';
 
 export default function Trainings() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -30,7 +30,7 @@ export default function Trainings() {
   }, []);
 
   return (
-    <main className="mt-4 flex flex-col items-center overflow-hidden px-4 sm:mt-8">
+    <main className="my-8 flex flex-col items-center gap-12 overflow-hidden px-4 sm:mt-8">
       <section
         className="relative flex w-full max-w-7xl flex-col items-center rounded-2xl py-6 sm:rounded-3xl sm:py-8"
         style={{
@@ -73,7 +73,37 @@ export default function Trainings() {
         </div>
       </section>
 
-      {/* Schedule Carousel Section */}
+      <section className="w-full max-w-7xl space-y-8 sm:space-y-12">
+        <div className="flex flex-col items-center gap-3">
+          <p className="text-center !text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
+            Напрямки вишколів
+          </p>
+          <p className="max-w-4xl text-center !text-[16px] leading-relaxed text-gray-600 sm:!text-[18px] lg:!text-[22px]">
+            Оберіть напрямок, перегляьте короткий опис і перейдіть до конкретного вишколу.
+          </p>
+        </div>
+        {TRAINING_CATEGORIES.map((category) => (
+          <div
+            key={category.id}
+            className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-4 sm:flex-row sm:rounded-3xl sm:p-8 lg:p-12"
+          >
+            <div className="w-full sm:mb-0 sm:w-1/3">
+              <p className="mb-3 text-[22px] leading-tight font-bold text-gray-900 sm:mb-4 sm:text-[28px] lg:text-[32px]">
+                {category.title}
+              </p>
+              <p className="text-[14px] leading-relaxed text-gray-600 sm:text-[16px] lg:text-[18px]">
+                {category.description}
+              </p>
+            </div>
+            <div className="grid w-full grid-cols-1 gap-2 sm:w-2/3 sm:grid-cols-2 sm:gap-4">
+              {category.trainings.map((training) => (
+                <TrainingCard key={training.id} {...training} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
       <section
         id="schedule-carousel"
         ref={sectionRef}
@@ -90,7 +120,6 @@ export default function Trainings() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <TestimonialsSection />
     </main>
   );
