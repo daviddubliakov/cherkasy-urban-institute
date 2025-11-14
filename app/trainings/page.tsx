@@ -2,7 +2,7 @@
 
 import { Link } from '@/components/ui/link';
 
-import { type MouseEvent, useCallback } from 'react';
+import { type MouseEvent, useCallback, useRef } from 'react';
 
 import { ScheduleCarousel } from './schedule-carousel';
 import { SCHEDULES_LIST } from './schedules-list';
@@ -11,14 +11,12 @@ import { TrainingCard } from './training-card';
 import { TRAININGS_LIST } from './trainings-list';
 
 export default function Trainings() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
   const handleScrollToCarousel = useCallback((event?: MouseEvent<HTMLAnchorElement>) => {
     event?.preventDefault();
 
-    if (typeof document === 'undefined') {
-      return;
-    }
-
-    const section = document.getElementById('schedule-carousel');
+    const section = sectionRef.current;
 
     if (!section) {
       return;
@@ -78,6 +76,7 @@ export default function Trainings() {
       {/* Schedule Carousel Section */}
       <section
         id="schedule-carousel"
+        ref={sectionRef}
         className="relative mt-24 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16"
       >
         <div className="mb-8 sm:mb-12">

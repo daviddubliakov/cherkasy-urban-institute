@@ -207,7 +207,7 @@ export const TestimonialsSection = () => {
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
                           <div className="absolute top-3 left-3 flex items-center gap-2 sm:top-4 sm:left-4">
                             <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-gray-800 uppercase shadow">
-                              Реальний скріншот
+                              Скріншот
                             </span>
                           </div>
                           <div className="absolute right-3 bottom-3 left-3 sm:right-4 sm:bottom-4 sm:left-4">
