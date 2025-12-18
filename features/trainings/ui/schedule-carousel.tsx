@@ -76,7 +76,7 @@ export const ScheduleCarousel = ({
   const canGoPrev = currentIndex > 0;
 
   return (
-    <div className="relative w-full py-4">
+    <div className="relative w-full ">
       {canGoPrev && (
         <button
           onClick={prevSlide}

@@ -1,4 +1,4 @@
-import type { TrainingCardPropsType } from './training-card';
+import type { TrainingCardPropsType } from '../training-card';
 
 export type TrainingCategoryType = {
   id: string;
