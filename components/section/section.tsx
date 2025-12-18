@@ -103,10 +103,10 @@ export const Section = ({ elements }: SectionProps) => {
       {/* Section header */}
       <div className='relative z-10 text-center mb-12 sm:mb-16 md:mb-20'>
         <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6'>
-          Наші <span className='gradient-text'>проекти</span>
+          Черкаський <span className='gradient-text'>інститут міста</span>
         </h2>
         <p className='text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-6'>
-          Дізнайтеся більше про наші ключові ініціативи та програми
+          Досліджуємо, популяризуємо та впроваджуємо кращі практики міського життя та управління з 2015 року
         </p>
       </div>
 
