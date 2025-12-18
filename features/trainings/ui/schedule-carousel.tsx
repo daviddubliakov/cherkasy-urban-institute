@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 import { ScheduleCard } from './schedule-card';
-import type { ScheduleCardPropsType } from './schedule-card';
+import type { ScheduleCardPropsType } from '../ui/schedule-card';
 
 type ScheduleCarouselProps = {
   schedules: ScheduleCardPropsType[];

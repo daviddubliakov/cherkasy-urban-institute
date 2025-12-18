@@ -1,4 +1,4 @@
-import type { ScheduleCardPropsType } from './schedule-card';
+import type { ScheduleCardPropsType } from '../ui/schedule-card';
 
 export const SCHEDULES_LIST: ScheduleCardPropsType[] = [
   {

@@ -1,4 +1,5 @@
-import { CharityCardPropsType } from './charity-card';
+import type { CharityCardPropsType } from "../ui/charity-card";
+
 
 export const CHARITY_LIST: Array<CharityCardPropsType> = [
   {
