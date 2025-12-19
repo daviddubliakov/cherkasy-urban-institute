@@ -3,81 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import Image from 'next/image';
-
-const testimonials = [
-  {
-    id: '1',
-    imageSrc: '/images/trainings/testimonials/feedback-01.jpeg',
-    alt: 'Скріншот відгуку: «Супер. Всі щасливі, всі довольні. Хочемо ще»',
-    summary: '«Супер. Всі щасливі, всі довольні. Хочемо ще»',
-  },
-  {
-    id: '2',
-    imageSrc: '/images/trainings/testimonials/feedback-02.jpeg',
-    alt: 'Скріншот відгуку від Тетяни про те, що все доступно та важливо знати',
-    summary: '«Все доступно. Інструктор молодець. Це має знати кожен»',
-  },
-  {
-    id: '3',
-    imageSrc: '/images/trainings/testimonials/feedback-03.jpeg',
-    alt: 'Скріншот відгуку про супер вишкіл та бажання продовжити навчання',
-    summary: '«Вишкіл просто супер! Хочемо продовження від пана Кучума»',
-  },
-  {
-    id: '4',
-    imageSrc: '/images/trainings/testimonials/feedback-04.jpeg',
-    alt: 'Скріншот повідомлення із проханням організувати наступне заняття',
-    summary: '«Попросили організувати наступне тактичне заняття зі зброєю»',
-  },
-  {
-    id: '5',
-    imageSrc: '/images/trainings/testimonials/feedback-05.jpeg',
-    alt: 'Скріншот відгуку про пізнавальне та цікаве навчання',
-    summary: '«Було дуже пізнавально. Гарно провели, мені сподобалося»',
-  },
-  {
-    id: '6',
-    imageSrc: '/images/trainings/testimonials/feedback-06.jpeg',
-    alt: 'Скріншот повідомлення «Оці навчання - топчик. Корисно»',
-    summary: '«Оці навчання — топчик. Корисно»',
-  },
-  {
-    id: '7',
-    imageSrc: '/images/trainings/testimonials/feedback-07.jpeg',
-    alt: 'Скріншот подяки за живе спілкування та практику на тренінгу',
-    summary: '«Ніякі презентації не замінять живе спілкування та практику»',
-  },
-  {
-    id: '8',
-    imageSrc: '/images/trainings/testimonials/feedback-08.jpeg',
-    alt: 'Скріншот відгуку з текстом «Все, я вже дома. Дуже круто»',
-    summary: '«Все, я вже дома. Дуже круто»',
-  },
-  {
-    id: '9',
-    imageSrc: '/images/trainings/testimonials/feedback-09.jpeg',
-    alt: 'Скріншот коментаря з Instagram із подякою за вишколи',
-    summary: '«Дякуємо за вишколи. Дуже цікаво та корисно»',
-  },
-  {
-    id: '10',
-    imageSrc: '/images/trainings/testimonials/feedback-10.jpeg',
-    alt: 'Скріншот повідомлення про доступну та важливу інформацію тренінгу',
-    summary: '«Все доступно та цікаво. Інформація, якою мають володіти всі»',
-  },
-  {
-    id: '11',
-    imageSrc: '/images/trainings/testimonials/feedback-11.jpeg',
-    alt: 'Скріншот відгуку Дениса з подякою за тренінг зі зброєю',
-    summary: '«Дуже корисно, тепер почуваю себе не нульовим зі зброєю»',
-  },
-  {
-    id: '12',
-    imageSrc: '/images/trainings/testimonials/feedback-12.jpeg',
-    alt: 'Скріншот повідомлення про пізнавальну та необхідну інформацію з емодзі',
-    summary: '«Отримала пізнавальну та необхідну інформацію»',
-  },
-];
+import { TESTIMONIALS_LIST } from '../models/testimonials-list';
 
 export const TestimonialsSection = () => {
   const [itemsPerView, setItemsPerView] = useState(1);
@@ -102,10 +28,10 @@ export const TestimonialsSection = () => {
   }, []);
 
   const slides = useMemo(() => {
-    const chunks: (typeof testimonials)[] = [];
+    const chunks: (typeof TESTIMONIALS_LIST)[] = [];
 
-    for (let i = 0; i < testimonials.length; i += itemsPerView) {
-      chunks.push(testimonials.slice(i, i + itemsPerView));
+    for (let i = 0; i < TESTIMONIALS_LIST.length; i += itemsPerView) {
+      chunks.push(TESTIMONIALS_LIST.slice(i, i + itemsPerView));
     }
 
     return chunks;
@@ -165,7 +91,7 @@ export const TestimonialsSection = () => {
   }, [openSlide]);
 
   return (
-    <section className="relative mt-8 flex w-full max-w-7xl flex-col px-4 pb-16 sm:mt-16 sm:pb-16">
+    <section className="relative flex w-full max-w-7xl flex-col">
       <div className="mb-8 text-center sm:mb-12">
         <h2 className="mb-3 !text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
           Відгуки <span className="gradient-text">учасників</span>
@@ -247,7 +173,7 @@ export const TestimonialsSection = () => {
         )}
 
         <div className="mt-6 flex items-center justify-center gap-2">
-          {testimonials.map((_, index) => (
+          {slides.map((_, index) => (
             <button
               key={index}
               type="button"
@@ -255,7 +181,7 @@ export const TestimonialsSection = () => {
               className={`h-2.5 rounded-full transition-all duration-300 ${
                 index === currentSlide ? 'w-8 bg-gray-900' : 'w-3 bg-gray-300 hover:bg-gray-400'
               }`}
-              aria-label={`Перейти до відгуку ${index + 1}`}
+              aria-label={`Перейти до слайду ${index + 1}`}
               aria-current={index === currentSlide}
             />
           ))}
@@ -280,15 +206,15 @@ export const TestimonialsSection = () => {
             </button>
             <div className="relative aspect-[3/4] w-full sm:aspect-[4/5] md:aspect-[16/10] lg:aspect-[16/9]">
               <Image
-                src={testimonials[openSlide].imageSrc}
-                alt={testimonials[openSlide].alt}
+                src={TESTIMONIALS_LIST[openSlide].imageSrc}
+                alt={TESTIMONIALS_LIST[openSlide].alt}
                 fill
                 sizes="100vw"
                 className="object-contain"
                 priority
               />
             </div>
-            <p className="mt-4 text-center text-sm text-white/80">{testimonials[openSlide].summary}</p>
+            <p className="mt-4 text-center text-sm text-white/80">{TESTIMONIALS_LIST[openSlide].summary}</p>
           </div>
         </div>
       )}
