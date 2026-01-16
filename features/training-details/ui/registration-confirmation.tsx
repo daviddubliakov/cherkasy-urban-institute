@@ -1,19 +1,21 @@
 'use client';
 
-import { useMemo } from 'react';
+import {
+  CalendarIcon,
+  CashIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  InfoCircleIcon,
+  PhoneIcon,
+  UserIcon,
+} from '@/components/icons';
 import { Link } from '@/components/ui/link';
 import { generateGoogleCalendarLink } from '@/utils';
+
+import { useMemo } from 'react';
+
 import type { TrainingDetailsType } from '../models/training-details';
 import type { RegistrationDataType } from '../training-detail-page';
-import {
-  CheckCircleIcon,
-  UserIcon,
-  PhoneIcon,
-  CalendarIcon,
-  ClockIcon,
-  CashIcon,
-  InfoCircleIcon,
-} from '@/components/icons';
 
 type RegistrationConfirmationProps = {
   training: TrainingDetailsType;
@@ -61,9 +63,7 @@ export function RegistrationConfirmation({
           </p>
 
           <div className="mb-8 rounded-2xl bg-gray-50 p-6 text-left">
-            <h3 className="mb-4 text-lg font-semibold text-gray-900">
-              Деталі {isWaitlist ? 'заявки' : 'реєстрації'}
-            </h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900">Деталі {isWaitlist ? 'заявки' : 'реєстрації'}</h3>
 
             <div className="space-y-3">
               <div className="flex items-start gap-3">
@@ -130,20 +130,14 @@ export function RegistrationConfirmation({
           )}
 
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/trainings"
-              variant="buttonLink"
-              backgroundColor="blue-600"
-              fontWeight="bold"
-              fontSize="sm"
-            >
+            <Link href="/trainings" variant="buttonLink" backgroundColor="blue-600" fontWeight="bold" fontSize="sm">
               До всіх вишколів
             </Link>
             <button
               onClick={onNewRegistration}
               className="rounded-xl border-2 border-gray-300 px-6 py-3 font-bold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50"
             >
-              Нова реєстрація
+              Повернути до вишколу
             </button>
           </div>
         </div>
