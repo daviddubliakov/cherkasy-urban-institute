@@ -28,8 +28,12 @@ export const Header = () => {
   const [shownSubmenuIndex, setShownSubmenuIndex] = useState<number | null>(null);
 
   const handleSetShownSubmenuIndex = (index: number | null) => {
-    shownSubmenuIndex !== index && setShownSubmenuIndex(index);
-    shownSubmenuIndex === index && setShownSubmenuIndex(null);
+    if (shownSubmenuIndex === index) {
+      setShownSubmenuIndex(null);
+      return;
+    }
+
+    setShownSubmenuIndex(index);
   };
 
   return (
@@ -74,9 +78,9 @@ export const Header = () => {
                     {MAIN_MENU_ITEMS.map((item, index) => (
                       <>
                         <div
-                          key={item.name}
                           className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                           onClick={() => handleSetShownSubmenuIndex(index)}
+                          key={item.id}
                         >
                           <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                             <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
@@ -181,7 +185,7 @@ export const Header = () => {
                     {[...MAIN_MENU_ITEMS, ...CALLS_TO_ACTION].map((item, index) =>
                       item.href ? (
                         <DisclosureButton
-                          key={item.name}
+                          key={item.id}
                           as={Link}
                           href={item.href}
                           className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
@@ -190,7 +194,7 @@ export const Header = () => {
                           {item.name}
                         </DisclosureButton>
                       ) : (
-                        <div>
+                        <div key={item.id}>
                           <p
                             className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                             onClick={() => handleSetShownSubmenuIndex(index)}

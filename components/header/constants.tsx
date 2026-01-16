@@ -20,6 +20,7 @@ export type SubmenuItem = {
 
 export type MainMenuItem = {
   name: string;
+  id: string;
   description?: string;
   content?: ReactNode[];
   href?: string;
@@ -31,42 +32,65 @@ export type MainMenuItem = {
   >;
 };
 
-const submenuLikClassNames = "block py-1 pl-20 hover:bg-gray-50"
-
+const submenuLikClassNames = 'block py-1 pl-20 hover:bg-gray-50';
 export const MAIN_MENU_ITEMS: MainMenuItem[] = [
   {
     name: 'Школа FPV «Черкаський рій»',
-    // description: 'Дізнайтеся, як ми допомагаємо місту під час війни',
     href: BOOK.war,
     icon: FireIcon,
+    id: 'fpv-school',
   },
   {
     name: 'Вишколи для цивільних',
-    // description: 'Підтримка відновлення інфраструктури',
     href: BOOK.warConsequences,
     icon: BugAntIcon,
+    id: 'civil-training',
   },
   {
     name: 'ІПСОлогія',
-    // description: 'Розробка та впровадження технологій безпеки',
     href: BOOK.safeCity,
     icon: ShieldCheckIcon,
+    id: 'ipsology',
   },
   {
     name: 'Мегапроект «Вдома»:',
-    // description: 'Підтримка та розвиток культурних ініціатив',
     icon: AcademicCapIcon,
+    id: 'mega-project',
     content: [
-      <Link href={'#'} fontWeight="semibold" className={submenuLikClassNames} onClick={() => close()}>
+      <Link
+        key="vetranskii-politiki"
+        href={'#'}
+        fontWeight="semibold"
+        className={submenuLikClassNames}
+        onClick={() => close()}
+      >
         Ветеранські політики
       </Link>,
-      <Link href={'#'} fontWeight="semibold" className={submenuLikClassNames} onClick={() => close()}>
+      <Link
+        key="bezpechna-gromada"
+        href={'#'}
+        fontWeight="semibold"
+        className={submenuLikClassNames}
+        onClick={() => close()}
+      >
         «Безпечна громада»
       </Link>,
-      <Link href={'#'} fontWeight="semibold" className={submenuLikClassNames} onClick={() => close()}>
+      <Link
+        key="zamozhna-gromada"
+        href={'#'}
+        fontWeight="semibold"
+        className={submenuLikClassNames}
+        onClick={() => close()}
+      >
         «Заможна громада»
       </Link>,
-      <Link href={'#'} fontWeight="semibold" className={submenuLikClassNames} onClick={() => close()}>
+      <Link
+        key="kulturna-gromada"
+        href={'#'}
+        fontWeight="semibold"
+        className={submenuLikClassNames}
+        onClick={() => close()}
+      >
         «Культурна громада»
       </Link>,
     ],
@@ -74,6 +98,6 @@ export const MAIN_MENU_ITEMS: MainMenuItem[] = [
 ];
 
 export const CALLS_TO_ACTION: MainMenuItem[] = [
-  { name: 'Підтримка інституту', href: '/charity', icon: CurrencyDollarIcon },
-  { name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
+  { id: 'charity', name: 'Підтримка інституту', href: '/charity', icon: CurrencyDollarIcon },
+  { id: 'contacts', name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
 ];

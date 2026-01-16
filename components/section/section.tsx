@@ -5,7 +5,6 @@ import { cn } from '@/utils';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { RegularLink } from '../ui/regular-link';
 
@@ -34,6 +33,7 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
       }, delay * 500);
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
