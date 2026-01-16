@@ -21,14 +21,21 @@ export function TrainingHero({ training }: TrainingHeroProps) {
   return (
     <section className="relative w-full max-w-7xl overflow-hidden rounded-2xl sm:rounded-3xl">
       <div className="absolute inset-0 z-0">
-        <Image
-          src={training.image || '/images/training-hero-placeholder.jpg'}
-          alt={training.title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-black/30" />
+        {/* TODO: find and add placeholder image */}
+        {training.image ? (
+          <>
+            <Image
+              src={training.image}
+              alt={training.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-black/30" />
+          </>
+        ) : (
+          <div className="h-full w-full bg-linear-to-br from-slate-600 via-slate-700 to-slate-800" />
+        )}
       </div>
 
       <div className="relative z-10 flex flex-col gap-6 p-6 sm:p-10 lg:p-16">

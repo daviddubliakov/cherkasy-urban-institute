@@ -129,20 +129,6 @@ export function RegistrationConfirmation({
             </div>
           )}
 
-          <div className="mb-8 rounded-xl bg-amber-50 p-4 text-left">
-            <div className="flex gap-3">
-              <InfoCircleIcon className="h-5 w-5 shrink-0 text-amber-600" />
-              <div>
-                <p className="font-semibold text-amber-800">Важлива інформація</p>
-                <p className="mt-1 text-sm text-amber-700">
-                  {isWaitlist
-                    ? 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
-                    : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'}
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/trainings"
