@@ -14,6 +14,7 @@ export const SCHEDULES_LIST: ScheduleCardPropsType[] = [
     day: 'середа',
     time: '18:30 - 21:00',
     title: 'Основи поводження зі зброєю: АК-74',
+    slug: 'osnovy-povodzhennia-zi-zbroieiu-ak-74',
   },
   {
     id: 'fpv-integration',
@@ -28,6 +29,7 @@ export const SCHEDULES_LIST: ScheduleCardPropsType[] = [
     day: 'субота',
     time: '12:00 - 14:00',
     title: 'Тактична підготовка',
+    slug: 'taktychna-pidhotovka',
   },
   {
     id: 'medical-training',

@@ -1,4 +1,6 @@
 export * from './client-side-utils';
+export { generateGoogleCalendarLink } from './generate-calendar-link';
+export { formatPhoneNumber } from './format-phone-number';
 
 import cx from 'classnames';
 import { twMerge } from 'tailwind-merge';

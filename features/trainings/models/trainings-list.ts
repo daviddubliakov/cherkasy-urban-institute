@@ -25,74 +25,78 @@ export const TRAININGS_LIST: TrainingCardPropsType[] = [
   },
 ];
 
-export const TRAINING_CATEGORIES:TrainingCategoryType[]= [
+export const TRAINING_CATEGORIES: TrainingCategoryType[] = [
   {
-    id: crypto.randomUUID(),
+    id: 'tactical',
     title: 'Тактичний напрям',
-    description:"lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: 'Практичні навички поводження зі зброєю, тактичної підготовки та дій в екстремальних ситуаціях.',
     trainings: [
       {
-        id: crypto.randomUUID(),
+        id: 'weapon-short',
+        slug: 'osnovy-povodzhennia-zi-zbroieiu-korotkyi-stvol',
         title: 'Основи поводження зі зброєю: короткий ствол',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'weapon-ak74',
+        slug: 'osnovy-povodzhennia-zi-zbroieiu-ak-74',
         title: 'Основи поводження зі зброєю: АК-74',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'tactical',
+        slug: 'taktychna-pidhotovka',
         title: 'Тактична підготовка',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'arrival-fire',
         title: 'Приліт, пожежа: як діяти',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'topography',
         title: 'Військова топографія',
-
       },
       {
-        id: crypto.randomUUID(),
+        id: 'mine-safety',
         title: 'Мінна безпека',
-
       },
     ],
   },
   {
-    id: crypto.randomUUID(),
-    title: "Домедична допомога",
-    description:"lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    id: 'medical',
+    title: 'Домедична допомога',
+    description: 'Життєво важливі навички надання першої допомоги та рятування життя у критичних ситуаціях.',
     trainings: [
       {
-        id: crypto.randomUUID(),
+        id: 'first-aid',
+        slug: 'indyvidualna-aptechka-ta-bazova-pidtrymka-zhyttia',
         title: 'Індивідуальна аптечка та базова підтримка життя',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'bleeding',
+        slug: 'zupynka-krytychnykh-krovotetch',
         title: 'Зупинка критичних кровотеч',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'trauma',
         title: 'Травма та інші види шоку',
       },
     ],
   },
   {
-    id: crypto.randomUUID(),
+    id: 'psychological',
     title: 'Психологічний напрям',
-    description:"lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: 'Підготовка до стресових ситуацій, розуміння інформаційних загроз та психологічна стійкість.',
     trainings: [
       {
-        id: crypto.randomUUID(),
+        id: 'stress-prep',
         title: 'Психологічна підготовка до стресових ситуацій',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'ipsology',
+        slug: 'ipsolohiia-oznaiomcha-lektsiia',
         title: 'ІПСОлогія: ознайомча лекція',
       },
       {
-        id: crypto.randomUUID(),
+        id: 'psychoeducation',
         title: 'Психоедукація',
       },
     ],
