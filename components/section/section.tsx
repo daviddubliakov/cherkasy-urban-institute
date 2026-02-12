@@ -47,11 +47,11 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
           style={style || {}}
         >
           {/* Background gradient overlay */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:rounded-3xl"></div>
+          <div className='absolute inset-0 bg-linear-to-br from-blue-50/30 via-transparent to-purple-50/30 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
 
           {/* Image container with enhanced styling */}
-          <div className="relative z-10 flex-shrink-0">
-            <div className="relative h-full overflow-hidden">
+          <div className='relative z-10 shrink-0'>
+            <div className='relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-500'>
               <Image
                 src={image}
                 alt="section image"

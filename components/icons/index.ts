@@ -1,3 +1,15 @@
 export { FacebookIcon } from './facebook';
 export { InstagramIcon } from './instagram';
 export { YouTubeIcon } from './youtube';
+export { BuildingIcon } from './building';
+export { CalendarIcon } from './calendar';
+export { CashIcon } from './cash';
+export { CheckIcon } from './check';
+export { CheckCircleIcon } from './check-circle';
+export { ClockIcon } from './clock';
+export { InfoCircleIcon } from './info-circle';
+export { PhoneIcon } from './phone';
+export { SpinnerIcon } from './spinner';
+export { UserIcon } from './user';
+export { UserPlaceholderIcon } from './user-placeholder';
+export { UsersIcon } from './users';
