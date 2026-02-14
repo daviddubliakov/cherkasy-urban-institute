@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utils';
 import { BOOK } from '@/utils/book';
 
 import { useState } from 'react';
@@ -24,6 +25,16 @@ import { CALLS_TO_ACTION, MAIN_MENU_ITEMS } from './constants';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [shownSubmenuIndex, setShownSubmenuIndex] = useState<number | null>(null);
+
+  const handleSetShownSubmenuIndex = (index: number | null) => {
+    if (shownSubmenuIndex === index) {
+      setShownSubmenuIndex(null);
+      return;
+    }
+
+    setShownSubmenuIndex(index);
+  };
 
   return (
     <header className="bg-gray-100">
@@ -64,29 +75,46 @@ export const Header = () => {
               {({ close }) => (
                 <>
                   <div className="p-4">
-                    {MAIN_MENU_ITEMS.map((item) => (
-                      <div
-                        key={item.name}
-                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
-                      >
-                        <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
+                    {MAIN_MENU_ITEMS.map((item, index) => (
+                      <>
+                        <div
+                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                          onClick={() => handleSetShownSubmenuIndex(index)}
+                          key={item.id}
+                        >
+                          <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
+                          </div>
+                          <div className="flex-auto">
+                            {item.href ? (
+                              <Link href={item.href} fontWeight="semibold" className="block" onClick={() => close()}>
+                                {item.name}
+                                <span className="absolute inset-0" />
+                              </Link>
+                            ) : (
+                              <p className="block cursor-pointer bg-transparent text-sm font-semibold text-gray-900">
+                                {item.name}
+                              </p>
+                            )}
+                            {item?.description && <p className="mt-1 text-gray-600">{item.description}</p>}
+                          </div>
                         </div>
-                        <div className="flex-auto">
-                          <Link href={item.href} fontWeight="semibold" className="block" onClick={() => close()}>
-                            {item.name}
-                            <span className="absolute inset-0" />
-                          </Link>
-                          <p className="mt-1 text-gray-600">{item.description}</p>
-                        </div>
-                      </div>
+                        {item?.content && (
+                          <div
+                            className={cn('relative h-0 overflow-hidden transition-[height] duration-500 ease-in-out')}
+                            style={shownSubmenuIndex === index ? { height: `${item.content.length * 32}px` } : {}}
+                          >
+                            {item.content}
+                          </div>
+                        )}
+                      </>
                     ))}
                   </div>
                   <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                     {CALLS_TO_ACTION.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href}
+                        href={item.href || '#'}
                         fontWeight="semibold"
                         fontSize="sm/6"
                         className="flex items-center justify-center gap-x-2.5 p-3"
@@ -154,17 +182,39 @@ export const Header = () => {
                   </DisclosureButton>
 
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {[...MAIN_MENU_ITEMS, ...CALLS_TO_ACTION].map((item) => (
-                      <DisclosureButton
-                        key={item.name}
-                        as={Link}
-                        href={item.href}
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </DisclosureButton>
-                    ))}
+                    {[...MAIN_MENU_ITEMS, ...CALLS_TO_ACTION].map((item, index) =>
+                      item.href ? (
+                        <DisclosureButton
+                          key={item.id}
+                          as={Link}
+                          href={item.href}
+                          className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      ) : (
+                        <div key={item.id}>
+                          <p
+                            className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                            onClick={() => handleSetShownSubmenuIndex(index)}
+                          >
+                            {item.name}
+                          </p>
+
+                          {item?.content && (
+                            <div
+                              className={cn(
+                                'relative h-0 overflow-hidden transition-[height] duration-500 ease-in-out',
+                              )}
+                              style={shownSubmenuIndex === index ? { height: `${item.content.length * 32}px` } : {}}
+                            >
+                              {item.content}
+                            </div>
+                          )}
+                        </div>
+                      ),
+                    )}
                   </DisclosurePanel>
                 </Disclosure>
 
