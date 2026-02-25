@@ -7,21 +7,25 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     background: '/images/main-screen/fpv-school.jpg',
     title: 'Школа FPV "Черкаський рій"',
     description: 'Пілотування FPV, курси пілотів-перехоплювачів та FPV-інженерії',
+    link: BOOK.fpvSchool,
   },
   {
     background: '/images/main-screen/civil-traning.JPG',
     title: 'Військові вишколи та тренінги для цивільних',
     description: 'Навчаємо реагувати на екстремальні ситуації воєнного часу',
+    link: BOOK.civilTraining,
   },
   {
     background: '/images/main-screen/ipsology.jpg',
     title: 'ІПСОлогія',
     description: 'Дослідження, виявлення, протидія та витіснення ворожих ІПСО з інформаційного простору',
+    link: BOOK.IPSOlogy,
   },
   {
     background: '/images/main-screen/culture.jpg',
     title: 'Культурна громада',
     description: 'Інкубація культурних проєктів, ініціатив та політик',
+    link: BOOK.citizensCulture,
   },
 ];
 
