@@ -5,12 +5,14 @@ import Image from 'next/image';
 import { cn } from '@/utils';
 import { CarouselNavigation } from './carousel-navigation';
 import { CarouselIndicators } from './carousel-indicators';
+import Link from 'next/link';
 
 export type CarouselSlide = {
   background: string;
   title: string;
   description: string;
   children?: ReactNode;
+  link?: string;
 };
 
  type Props = {
@@ -66,32 +68,33 @@ export const Carousel = ({
               index > currentSlide && 'opacity-0 translate-x-full'
             )}
           >
-            <Image
-              src={slide.background}
-              width={1920}
-              height={1080}
-              alt={slide.title}
-              className="absolute inset-0 w-full h-full object-cover z-[-1]"
-              priority={index === 0}
-            />
-            
-            <div className="absolute inset-0 bg-black/40 z-0" />
-            
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 sm:px-6 md:px-8 lg:px-12">
-              <div className="text-center max-w-4xl">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 h2-shadow animate-fade-in-up">
-                  {slide.title}
-                </h2>
-                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-10 leading-relaxed animate-fade-in-up animation-delay-300">
-                  {slide.description}
-                </p>
-                {slide.children && (
-                  <div className="animate-fade-in-up animation-delay-600">
-                    {slide.children}
-                  </div>
-                )}
+            <Link href={slide.link || '#'}>
+              <Image
+                src={slide.background}
+                width={1920}
+                height={1080}
+                alt={slide.title}
+                className="absolute inset-0 w-full h-full object-cover z-[-1]"
+                priority={index === 0}
+              />
+              <div className="absolute inset-0 bg-black/40 z-0" />
+              
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 sm:px-6 md:px-8 lg:px-12">
+                <div className="text-center max-w-4xl">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 h2-shadow animate-fade-in-up">
+                    {slide.title}
+                  </h2>
+                  <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-10 leading-relaxed animate-fade-in-up animation-delay-300">
+                    {slide.description}
+                  </p>
+                  {slide.children && (
+                    <div className="animate-fade-in-up animation-delay-600">
+                      {slide.children}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
 
