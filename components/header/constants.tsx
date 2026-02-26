@@ -98,6 +98,6 @@ export const MAIN_MENU_ITEMS: MainMenuItem[] = [
 ];
 
 export const CALLS_TO_ACTION: MainMenuItem[] = [
-  { id: 'charity', name: 'Підтримка інституту', href: '/charity', icon: CurrencyDollarIcon },
+  { id: 'charity', name: 'Підтримка ЧІМ', href: '/charity', icon: CurrencyDollarIcon },
   { id: 'contacts', name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
 ];
