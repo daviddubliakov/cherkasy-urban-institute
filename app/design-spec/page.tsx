@@ -24,7 +24,7 @@ const SUB_ITEMS = [
     dotColor: 'bg-amber-500',
   },
   {
-    name: '«Культурна громада»',
+    name: 'Культурна громада',
     icon: SparklesIcon,
     description: 'Культурні ініціативи',
     color: 'text-rose-600',
@@ -69,7 +69,7 @@ function CurrentDropdown() {
           <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
             <AcademicCapIcon className="size-6 text-gray-600" />
           </div>
-          <p className="font-semibold text-gray-900">{'Мегапроект «Вдома»:'}</p>
+          <p className="font-semibold text-gray-900">{'Мегапроект «Вдома»'}</p>
         </div>
 
         {open && (
@@ -78,7 +78,7 @@ function CurrentDropdown() {
               Ветеранські політики
             </a>
             <a href="#" className="block py-1 pl-20 text-sm font-semibold text-gray-900 hover:bg-gray-50">
-              {'«Культурна громада»'}
+              Культурна громада
             </a>
           </div>
         )}
@@ -133,7 +133,7 @@ function OptionADropdown() {
             <AcademicCapIcon className="size-6 text-gray-600" />
           </div>
           <div className="flex flex-1 items-center justify-between">
-            <p className="font-semibold text-gray-900">{'Мегапроект «Вдома»:'}</p>
+            <p className="font-semibold text-gray-900">{'Мегапроект «Вдома»'}</p>
             <ChevronDownIcon
               className={`size-4 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
             />
