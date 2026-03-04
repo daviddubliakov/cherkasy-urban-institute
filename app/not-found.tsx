@@ -14,7 +14,7 @@ export default function Custom404() {
           Упс! В нас немає такої сторінки, яку ви шукаєте.
         </p>
         <div className='mt-10 flex items-center justify-center gap-x-6'>
-          <Link href={BOOK.home} variant='button' fontWeight='semibold'>
+          <Link href={BOOK.home} variant='button' backgroundColor='blue-600' fontWeight='semibold'>
             Повернутися на головну
           </Link>
           <Link href={BOOK.contacts} fontWeight='semibold'>
