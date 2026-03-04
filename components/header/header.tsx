@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import { cn } from '@/utils';
 import { BOOK } from '@/utils/book';
 
@@ -22,6 +24,7 @@ import Image from 'next/image';
 
 import { Link } from '../../components/ui/link';
 import { CALLS_TO_ACTION, MAIN_MENU_ITEMS } from './constants';
+
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -76,11 +79,11 @@ export const Header = () => {
                 <>
                   <div className="p-4">
                     {MAIN_MENU_ITEMS.map((item, index) => (
-                      <>
+                      <React.Fragment key={item.id}>
                         <div
                           className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                           onClick={() => handleSetShownSubmenuIndex(index)}
-                          key={item.id}
+                         
                         >
                           <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                             <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
@@ -107,7 +110,7 @@ export const Header = () => {
                             {item.content}
                           </div>
                         )}
-                      </>
+                      </React.Fragment>
                     ))}
                   </div>
                   <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
