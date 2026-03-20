@@ -1,6 +1,6 @@
 import { BOOK } from '@/utils/book';
 
-import { ForwardRefExoticComponent, ReactNode, RefAttributes, SVGProps } from 'react';
+import type { ForwardRefExoticComponent, ReactNode, RefAttributes, SVGProps } from 'react';
 
 import { PhoneIcon } from '@heroicons/react/20/solid';
 import {
