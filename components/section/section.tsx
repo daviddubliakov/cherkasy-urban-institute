@@ -2,7 +2,8 @@
 
 import { cn } from '@/utils';
 
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -47,11 +48,11 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
           style={style || {}}
         >
           {/* Background gradient overlay */}
-          <div className='absolute inset-0 bg-linear-to-br from-blue-50/30 via-transparent to-purple-50/30 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-blue-50/30 via-transparent to-purple-50/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:rounded-3xl" />
 
           {/* Image container with enhanced styling */}
-          <div className='relative z-10 shrink-0'>
-            <div className='relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg group-hover:shadow-xl transition-shadow duration-500'>
+          <div className="relative z-10 shrink-0">
+            <div className="relative overflow-hidden rounded-xl shadow-lg transition-shadow duration-500 group-hover:shadow-xl sm:rounded-2xl">
               <Image
                 src={image}
                 alt="section image"
@@ -59,7 +60,7 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
                 height={100}
                 className="h-[300px] w-full object-cover sm:h-full sm:w-[200px] md:h-full md:w-[340px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
           </div>
 
@@ -88,9 +89,9 @@ export const Section = ({ elements }: SectionProps) => {
     <section className="relative w-full bg-gradient-to-b from-gray-50/50 to-white/50 py-16 sm:py-20 md:py-24 lg:py-32">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 h-32 w-32 rounded-full bg-blue-100/30 blur-3xl"></div>
-        <div className="absolute right-10 bottom-20 h-40 w-40 rounded-full bg-purple-100/30 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-r from-blue-50/20 to-purple-50/20 blur-3xl"></div>
+        <div className="absolute top-20 left-10 h-32 w-32 rounded-full bg-blue-100/30 blur-3xl" />
+        <div className="absolute right-10 bottom-20 h-40 w-40 rounded-full bg-purple-100/30 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gradient-to-r from-blue-50/20 to-purple-50/20 blur-3xl" />
       </div>
 
       {/* Section header */}

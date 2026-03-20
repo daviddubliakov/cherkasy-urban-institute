@@ -15,7 +15,7 @@ export const RegularLink = ({ title, link, withArrow = true }: RegularLinkProps)
     >
       <span className="relative">
         {title}
-        <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover/link:w-full"></span>
+        <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover/link:w-full" />
       </span>
       {withArrow && (
         <svg
