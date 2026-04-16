@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { cn } from '@/utils';
 import { BOOK } from '@/utils/book';
 
 import { useState } from 'react';
@@ -23,21 +22,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 
 import { Link } from '../../components/ui/link';
-import { CALLS_TO_ACTION, MAIN_MENU_ITEMS } from './constants';
+import { MAIN_MENU_ITEMS } from './constants';
 
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [shownSubmenuIndex, setShownSubmenuIndex] = useState<number | null>(null);
-
-  const handleSetShownSubmenuIndex = (index: number | null) => {
-    if (shownSubmenuIndex === index) {
-      setShownSubmenuIndex(null);
-      return;
-    }
-
-    setShownSubmenuIndex(index);
-  };
 
   return (
     <header className="bg-gray-100">
@@ -73,20 +62,19 @@ export const Header = () => {
             </PopoverButton>
             <PopoverPanel
               transition
-              className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-[12px] bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               {({ close }) => (
                 <>
-                  <div className="p-4">
-                    {MAIN_MENU_ITEMS.map((item, index) => (
+                  <div className=" flex flex-col gap-4 p-6">
+                    {MAIN_MENU_ITEMS.map((item) => (
                       <React.Fragment key={item.id}>
+     
                         <div
-                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
-                          onClick={() => handleSetShownSubmenuIndex(index)}
-                         
+                          className="relative flex items-center gap-x-4 rounded-lg text-sm/6"
                         >
-                          <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                            <item.icon aria-hidden="true" className="group-hover:slate-900 size-6 text-gray-600" />
+                          <div className="flex size-9 flex-none items-center justify-center rounded-lg bg-[#F3F4F6]">
+                            <item.icon aria-hidden="true" className="size-6 text-gray-600" />
                           </div>
                           <div className="flex-auto">
                             {item.href ? (
@@ -103,29 +91,10 @@ export const Header = () => {
                           </div>
                         </div>
                         {item?.content && (
-                          <div
-                            className={cn('relative h-0 overflow-hidden transition-[height] duration-500 ease-in-out')}
-                            style={shownSubmenuIndex === index ? { height: `${item.content.length * 32}px` } : {}}
-                          >
-                            {item.content}
-                          </div>
+                          <div>{item.content}</div>
                         )}
+                    
                       </React.Fragment>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                    {CALLS_TO_ACTION.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href || '#'}
-                        fontWeight="semibold"
-                        fontSize="sm/6"
-                        className="flex items-center justify-center gap-x-2.5 p-3"
-                        onClick={() => close()}
-                      >
-                        <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-                        {item.name}
-                      </Link>
                     ))}
                   </div>
                 </>
@@ -185,36 +154,23 @@ export const Header = () => {
                   </DisclosureButton>
 
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {[...MAIN_MENU_ITEMS, ...CALLS_TO_ACTION].map((item, index) =>
+                    {[...MAIN_MENU_ITEMS].map((item) =>
                       item.href ? (
                         <DisclosureButton
                           key={item.id}
                           as={Link}
                           href={item.href}
-                          className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                          className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
                         </DisclosureButton>
                       ) : (
                         <div key={item.id}>
-                          <p
-                            className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-                            onClick={() => handleSetShownSubmenuIndex(index)}
-                          >
+                          <p className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900">
                             {item.name}
                           </p>
-
-                          {item?.content && (
-                            <div
-                              className={cn(
-                                'relative h-0 overflow-hidden transition-[height] duration-500 ease-in-out',
-                              )}
-                              style={shownSubmenuIndex === index ? { height: `${item.content.length * 32}px` } : {}}
-                            >
-                              {item.content}
-                            </div>
-                          )}
+                          {item?.content && <div>{item.content}</div>}
                         </div>
                       ),
                     )}

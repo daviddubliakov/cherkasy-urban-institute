@@ -1,16 +1,8 @@
 import { BOOK } from '@/utils/book';
 
-import { ForwardRefExoticComponent, ReactNode, RefAttributes, SVGProps } from 'react';
+import { ReactElement, ReactNode, SVGProps } from 'react';
 
-import { PhoneIcon } from '@heroicons/react/20/solid';
-import {
-  AcademicCapIcon,
-  BugAntIcon,
-  CurrencyDollarIcon,
-  FireIcon,
-  ShieldCheckIcon,
-} from '@heroicons/react/24/outline';
-
+import { AcademicCapNewIcon, DroneIcon, HomeIcon, ShieldCheckNewIcon } from '../icons';
 import { Link } from '../ui/link';
 
 export type SubmenuItem = {
@@ -24,37 +16,32 @@ export type MainMenuItem = {
   description?: string;
   content?: ReactNode[];
   href?: string;
-  icon: ForwardRefExoticComponent<
-    Omit<SVGProps<SVGSVGElement>, 'ref'> & {
-      title?: string | undefined;
-      titleId?: string | undefined;
-    } & RefAttributes<SVGSVGElement>
-  >;
+  icon: (props: SVGProps<SVGSVGElement>) => ReactElement;
 };
 
-const submenuLikClassNames = 'block py-1 pl-20 hover:bg-gray-50';
+const submenuLikClassNames = 'block py-1 pl-[52px]';
 export const MAIN_MENU_ITEMS: MainMenuItem[] = [
   {
     name: 'Школа FPV «Черкаський рій»',
     href: BOOK.war,
-    icon: FireIcon,
+    icon: DroneIcon,
     id: 'fpv-school',
   },
   {
     name: 'Вишколи для цивільних',
     href: BOOK.warConsequences,
-    icon: BugAntIcon,
+    icon: AcademicCapNewIcon,
     id: 'civil-training',
   },
   {
-    name: 'ІПСОлогія',
+    name: 'Проєкт «ІПСОлогія»',
     href: BOOK.safeCity,
-    icon: ShieldCheckIcon,
+    icon: ShieldCheckNewIcon,
     id: 'ipsology',
   },
   {
-    name: 'Мегапроект «Вдома»:',
-    icon: AcademicCapIcon,
+    name: 'Мегапроєкт «Вдома»',
+    icon: HomeIcon,
     id: 'mega-project',
     content: [
       <Link
@@ -65,25 +52,7 @@ export const MAIN_MENU_ITEMS: MainMenuItem[] = [
         onClick={() => close()}
       >
         Ветеранські політики
-      </Link>,
-      <Link
-        key="bezpechna-gromada"
-        href={'#'}
-        fontWeight="semibold"
-        className={submenuLikClassNames}
-        onClick={() => close()}
-      >
-        «Безпечна громада»
-      </Link>,
-      <Link
-        key="zamozhna-gromada"
-        href={'#'}
-        fontWeight="semibold"
-        className={submenuLikClassNames}
-        onClick={() => close()}
-      >
-        «Заможна громада»
-      </Link>,
+      </Link>, 
       <Link
         key="kulturna-gromada"
         href={'#'}
@@ -91,13 +60,8 @@ export const MAIN_MENU_ITEMS: MainMenuItem[] = [
         className={submenuLikClassNames}
         onClick={() => close()}
       >
-        «Культурна громада»
+        Культурна громада
       </Link>,
     ],
   },
-];
-
-export const CALLS_TO_ACTION: MainMenuItem[] = [
-  { id: 'charity', name: 'Підтримка ЧІМ', href: '/charity', icon: CurrencyDollarIcon },
-  { id: 'contacts', name: "Зворотній зв'язок", href: '/contacts', icon: PhoneIcon },
 ];
