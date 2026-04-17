@@ -1,4 +1,4 @@
-import { Open_Sans, Geist_Mono } from 'next/font/google';
+import { Open_Sans, Geist_Mono, Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 
 import { Header } from '@/components/header';
@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const inter = Inter({
+  variable: '--font-inter-var',
+  subsets: ['latin', 'cyrillic'],
+});
+
 export const metadata: Metadata = {
   title: 'Черкаський Інститут Міста',
   description: 'Кращі практики міського життя',
@@ -29,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang='ua'>
       <body
-        className={`${openSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         <Header />
         <main className='min-h-[calc(100vh-148px)]'>{children}</main>

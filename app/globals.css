@@ -17,6 +17,7 @@
   --color-border: var(--border);
   --font-sans: var(--font-open-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter-var);
 }
 
 body {
