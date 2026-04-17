@@ -1,6 +1,6 @@
 import { BOOK } from '@/utils/book';
 
-import { ReactElement, SVGProps } from 'react';
+import type { ReactElement, SVGProps } from 'react';
 
 import { AcademicCapNewIcon, DroneIcon, HomeIcon, ShieldCheckNewIcon } from '../icons';
 
