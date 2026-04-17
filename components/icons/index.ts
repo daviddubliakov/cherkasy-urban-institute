@@ -13,3 +13,7 @@ export { SpinnerIcon } from './spinner';
 export { UserIcon } from './user';
 export { UserPlaceholderIcon } from './user-placeholder';
 export { UsersIcon } from './users';
+export { HomeIcon } from './home';
+export { DroneIcon } from './drone';
+export { ShieldCheckNewIcon } from './shield-check-new';
+export { AcademicCapNewIcon } from './academic-cap-new';
