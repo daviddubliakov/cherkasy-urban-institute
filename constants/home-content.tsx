@@ -1,6 +1,29 @@
 import type { CarouselSlide } from '@/components/carousel';
-import { RegularLink } from '@/components/ui/regular-link';
+import { SectionSubCard, SectionSubLink } from '@/components/section';
 import { BOOK } from '@/utils/book';
+
+export const MEGA_PROJECT_HOME_LINKS: SectionSubLink[] = [
+  {
+    title: 'Ветеранські політики',
+    link: '#',
+    description: 'вивчаємо та впроваджуємо кращі практики в Черкасах',
+  },
+  // {
+  //   title: 'Безпечна громада',
+  //   link: '#',
+  //   description: 'впроваджуємо кращі безпекові практики, нарощуємо відчуття безпеки в Черкасах',
+  // },
+  // {
+  //   title: 'Заможна громада',
+  //   link: '#',
+  //   description: 'розвиваємо підприємництво й кращі практики міських економічних політик',
+  // },
+  {
+    title: 'Культурна громада',
+    link: '#',
+    description: 'вирощуємо культурні проєкти, ініціативи та політики',
+  },
+];
 
 export const CAROUSEL_SLIDES: CarouselSlide[] = [
   {
@@ -50,18 +73,14 @@ export const SECTION_ELEMENTS = [
     link: BOOK.IPSOlogy,
   },
   {
-    image: '/images/homepage/photo_2024-10-21_20-48-00.jpg',
+    image: '/images/homepage/megapro_home.png',
     title: 'Мегапроєкт «Вдома»',
     description: 'Тримаємо цілісність і дієвість громади під ударами війни.​',
     children: (
-      <div>
-        <p>Проєкт включає такі підпроєкти:</p>
-        <ul className="list-inside list-disc">
-          <li><RegularLink title="Ветеранські політики " link={"#"} withArrow={false} /> — вивчаємо та впроваджуємо кращі практики в Черкасах</li>
-          <li><RegularLink title="«Безпечна громада» " link={"#"} withArrow={false} /> — впроваджуємо кращі безпекові практики, нарощуємо відчуття безпеки в Черкасах</li>
-          <li><RegularLink title="«Заможна громада» " link={"#"} withArrow={false} /> — розвиваємо підприємництво й кращі практики міських економічних політик</li>
-          <li><RegularLink title="«Культурна громада» " link={"#"} withArrow={false} /> — вирощуємо культурні проєкти, ініціативи та політики</li>
-        </ul>
+      <div className='flex flex-col gap-2'>
+        {MEGA_PROJECT_HOME_LINKS.map((sublink) => (
+          <SectionSubCard {...sublink} />
+        ))}
       </div>
     ),
     link: BOOK.IPSOlogy,

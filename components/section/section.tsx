@@ -23,6 +23,12 @@ export type SectionProps = {
   elements: SectionCardProps[];
 };
 
+export type SectionSubLink = {
+  title: string;
+  link: string;
+  description: string;
+};
+
 const SectionCard = ({ image, title, description, children, style, delay = 0 }: SectionCardProps) => {
   const [shouldRender, setShouldRender] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -38,44 +44,27 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
   }, []);
 
   return (
-    <div ref={wrapperRef}>
+    <div ref={wrapperRef} className="h-full">
       {shouldRender && (
         <div
           className={cn(
-            'group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-gray-100/50 bg-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-gray-200/80 hover:bg-white/80 hover:shadow-xl sm:flex-row sm:rounded-3xl',
+            'group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-gray-100/50 bg-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-gray-200/80 hover:bg-white/80 hover:shadow-xl sm:flex-row sm:items-stretch sm:rounded-3xl',
             shouldRender ? 'animate-fade-in-up' : 'opacity-0',
           )}
           style={style || {}}
         >
-          {/* Background gradient overlay */}
-          <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-blue-50/30 via-transparent to-purple-50/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:rounded-3xl" />
-
-          {/* Image container with enhanced styling */}
-          <div className="relative z-10 shrink-0">
-            <div className="relative overflow-hidden rounded-xl shadow-lg transition-shadow duration-500 group-hover:shadow-xl sm:rounded-2xl">
-              <Image
-                src={image}
-                alt="section image"
-                width={240}
-                height={100}
-                className="h-[300px] w-full object-cover sm:h-full sm:w-[200px] md:h-full md:w-[340px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            </div>
+          <div className="relative h-[200px] w-full sm:h-auto sm:w-[308px] sm:flex-shrink-0 sm:self-stretch md:w-[428px]">
+            <Image src={image} alt="section image" fill className="object-cover" />
           </div>
 
-          {/* Content container */}
-          <div className="relative z-10 flex min-w-0 flex-1 flex-col justify-between p-4">
+          <div className="relative z-10 flex min-w-0 flex-1 flex-col justify-between p-5 pt-6 sm:p-6 sm:pt-7">
             <div>
-              <h3 className="mb-3 text-lg leading-tight font-bold text-gray-900 transition-colors duration-300 group-hover:text-gray-800 sm:mb-4 sm:text-xl md:text-2xl">
-                {title}
-              </h3>
-              <p className="mb-4 text-sm leading-relaxed text-gray-600 transition-colors duration-300 group-hover:text-gray-700 sm:mb-6 sm:text-base md:text-lg">
+              <h4 className="mb-3 text-2xl leading-tight font-semibold text-gray-900 md:text-3xl">{title}</h4>
+              <p className="mb-4 text-base leading-relaxed text-gray-600 transition-colors duration-300 group-hover:text-gray-700 sm:mb-6">
                 {description}
               </p>
             </div>
 
-            {/* Link with enhanced styling */}
             <div className="mt-auto">{children}</div>
           </div>
         </div>
@@ -97,7 +86,7 @@ export const Section = ({ elements }: SectionProps) => {
       {/* Section header */}
       <div className="relative z-10 mb-12 text-center sm:mb-16 md:mb-20">
         <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl">
-          Наші <span className="gradient-text">проекти</span>
+          Наші <span className="gradient-text">проєкти</span>
         </h2>
         <p className="mx-auto max-w-3xl px-4 text-lg text-gray-600 sm:px-6 sm:text-xl md:text-2xl">
           Дізнайтеся більше про наші ключові ініціативи та програми
@@ -115,3 +104,13 @@ export const Section = ({ elements }: SectionProps) => {
     </section>
   );
 };
+
+export const SectionSubCard = ({ title, description, link }: SectionSubLink) => (
+  <div key={title} className="flex items-center justify-between border border-gray-200 rounded-xl p-4">
+    <div>
+      <p className="font-medium">{title}</p>
+      <p className="text-sm text-gray-600">{description}</p>
+    </div>
+    <RegularLink link={link} />
+  </div>
+);
