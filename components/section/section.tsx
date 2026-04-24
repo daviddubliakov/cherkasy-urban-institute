@@ -48,7 +48,7 @@ const SectionCard = ({ image, title, description, children, style, delay = 0 }: 
       {shouldRender && (
         <div
           className={cn(
-            'group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl border border-gray-100/50 bg-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-gray-200/80 hover:bg-white/80 hover:shadow-xl sm:flex-row sm:items-stretch sm:rounded-3xl',
+            'group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-gray-100/50 bg-white/50 shadow-lg backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-gray-200/80 hover:bg-white/80 hover:shadow-xl sm:flex-row sm:items-stretch sm:rounded-3xl',
             shouldRender ? 'animate-fade-in-up' : 'opacity-0',
           )}
           style={style || {}}
