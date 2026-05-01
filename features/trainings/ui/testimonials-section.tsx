@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import Image from 'next/image';
+
 import { TESTIMONIALS_LIST } from '../models/testimonials-list';
 
 export const TestimonialsSection = () => {
@@ -178,8 +179,8 @@ export const TestimonialsSection = () => {
               key={index}
               type="button"
               onClick={() => goToSlide(index)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'w-8 bg-gray-900' : 'w-3 bg-gray-300 hover:bg-gray-400'
+              className={`h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'w-3 bg-blue-600' : 'w-3 bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Перейти до слайду ${index + 1}`}
               aria-current={index === currentSlide}
