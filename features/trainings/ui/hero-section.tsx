@@ -4,9 +4,6 @@ import { Link } from '@/components/ui/link';
 
 import { type MouseEvent } from 'react';
 
-import { TRAININGS_LIST } from '../models/trainings-list';
-import { TrainingCard } from './training-card';
-
 type HeroSectionProps = {
   onScrollToCarousel?: (event?: MouseEvent<HTMLAnchorElement>) => void;
 };
@@ -23,7 +20,7 @@ export const HeroSection = ({ onScrollToCarousel }: HeroSectionProps) => {
         `,
       }}
     >
-      <div className="flex mt-8 sm:mt-12 flex-col items-center gap-3 px-4 py-4 sm:gap-4 sm:px-8 sm:py-12">
+      <div className="mt-8 flex flex-col items-center gap-3 px-4 py-4 sm:mt-12 sm:gap-4 sm:px-8 sm:py-12">
         <h2 className="text-center !text-[32px] leading-tight font-bold sm:!text-[48px] lg:!text-[59px]">
           <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-2 lg:gap-4">
             <span>Практика.</span>
@@ -36,12 +33,7 @@ export const HeroSection = ({ onScrollToCarousel }: HeroSectionProps) => {
           інструкторами з добровольчого формування боремо страх, вчимо рятувати життя та діяти в критичних ситуаціях.
         </h3>
       </div>
-      <div className="grid w-full max-w-4xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 sm:gap-6 sm:px-8">
-        {TRAININGS_LIST.map((training) => (
-          <TrainingCard key={training.id} {...training} />
-        ))}
-      </div>
-      <div className="mt-8 mb-8 sm:mb-12 sm:mt-12">
+      <div className="mt-8 mb-8 sm:mt-12 sm:mb-12">
         <Link
           href="#schedule-carousel"
           variant="buttonLink"
