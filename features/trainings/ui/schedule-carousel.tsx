@@ -6,8 +6,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import { ScheduleCard } from './schedule-card';
 import type { ScheduleCardPropsType } from '../ui/schedule-card';
+import { ScheduleCard } from './schedule-card';
 
 type ScheduleCarouselProps = {
   schedules: ScheduleCardPropsType[];
@@ -76,7 +76,7 @@ export const ScheduleCarousel = ({
   const canGoPrev = currentIndex > 0;
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       {canGoPrev && (
         <button
           onClick={prevSlide}
@@ -125,8 +125,8 @@ export const ScheduleCarousel = ({
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={cn(
-                'h-1.5 w-1.5 cursor-pointer rounded-full transition-all duration-300',
-                index === currentIndex ? 'bg-blue-600' : 'bg-gray-300 hover:bg-gray-400',
+                'h-3 cursor-pointer rounded-full transition-all duration-300',
+                index === currentIndex ? 'w-3 bg-blue-600' : 'w-3 bg-gray-300 hover:bg-gray-400',
               )}
               aria-label={`Перейти до слайда ${index + 1}`}
             />
